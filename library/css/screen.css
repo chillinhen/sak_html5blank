@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 /*** BSP: @extend %reset;***/
 /*** Mixins & Placeholders ***/
 /**** caret ****/
@@ -10,19 +16,21 @@
 /* =============================================================================
    Height & Widths
    ========================================================================== */
+.colPrimary {
+  fill: #2466a8; }
+
+.colBase {
+  fill: white; }
+
+.colGrey {
+  fill: #4d4d4d; }
+
 /*@import 'base/_grid';
 @import 'base/_ui';
 @import 'base/_typography';
 @import 'base/_form';
 @import 'base/_media';
-@import 'layout/_globals';
-@import 'layout/_navigation';
-
-/*@import 'layout/_navigation';
-@import 'layout/_widgets';
-@import 'layout/_posts';
-
-@import 'layout/_layout';*/
+@import 'layout/_globals';*/
 .nav.nav-tabs.nav-justified li {
   list-style: none;
   vertical-align: bottom; }
@@ -49,5 +57,56 @@
     color: #fff; }
   .nav.nav-tabs.nav-justified li.current_page_item a:hover {
     background: #4385c8; }
+
+/*@import 'layout/_navigation';
+@import 'layout/_widgets';
+@import 'layout/_posts';
+
+@import 'layout/_layout';*/
+/*** Grid ***/
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .container#header > .logo {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .container#header > .logo:last-child {
+      margin-right: 0; }
+  .container#header > .contact-data {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .container#header > .contact-data:last-child {
+      margin-right: 0; }
+
+#footer .footer-links {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  #footer .footer-links::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #footer .footer-links > * {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    #footer .footer-links > *:last-child {
+      margin-right: 0; }
+
+/**** Layout ****/
+body > header * {
+  color: #fff; }
+body > main {
+  background: #F2F2F2; }
 
 /*# sourceMappingURL=screen.css.map */

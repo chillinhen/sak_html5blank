@@ -14,9 +14,10 @@ $body-bg:#fff;
 $text-color:#333;
 $light-text-color:#999;
 $light-gray:#ccc;
-$dark-gray:#e5e5e4;
+$dark-gray:darken($light-gray,50%);
 $link-color:$brand-primary;
 $border-color:$light-gray;
+$mainBg:#F2F2F2;
 
 /*** Info Graphic ***/
 $bg-level_c2:#083E72;

@@ -1,0 +1,9 @@
+.colPrimary{
+ fill:$brand-primary;   
+}
+.colBase{
+    fill:lighten($brand-primary,100%);
+}
+.colGrey{
+	fill: $dark-gray;
+}

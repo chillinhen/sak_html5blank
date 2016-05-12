@@ -1,10 +1,32 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 11.05.2016, 16:28:15
-    Author     : chilliscope
-*/
-
+.nav.nav-tabs.nav-justified {
+    li{
+        .sub-menu{display:none;}
+        list-style: none;
+        vertical-align:bottom;
+        > a {
+            @include border-radius(0);
+            border:0;
+            @media screen and (min-width:$screen-sm) and (max-width:$screen-md){
+                padding-left:0;
+                padding-right:0;
+            }
+            @media screen and (min-width:$screen-md){
+                color: $text-color;
+                &:hover {
+                    @include active-style;
+                }
+            }
+            &:hover,&:focus, &:active{
+                
+            }
+            
+        }
+        &.current_page_item{
+            a, a:focus, a:active {
+                @include active-style;
+            }
+            a:hover{background:$brand-secondary;}
+        }
+        
+    }
+}

@@ -1,0 +1,5 @@
+@mixin active-style {
+	background:$brand-primary;
+        background-image:none !important;
+	color:$white;
+    }

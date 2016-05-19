@@ -1,4 +1,4 @@
-@import "/Users/chilliscope/Documents/Webseiten/toolbox/bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "/Users/chilliscope/Documents/Webseiten/toolbox/bower_components/bourbon/bourbon";
 @import "/Users/chilliscope/Documents/Webseiten/toolbox/bower_components/neat/app/assets/stylesheets/_neat";
 //@import "base/_normalize";
 //@import "bower_components/bitters/core/_base";
@@ -11,17 +11,21 @@
 @import 'utils/_mixins';
 @import 'utils/_icons';
 
-/*@import 'base/_grid';
+/*
 @import 'base/_ui';
-@import 'base/_typography';
 @import 'base/_form';
 @import 'base/_media';
-@import 'layout/_globals';*/
-@import 'layout/_navigation';
+@import 'base/_globals';
+*/
+@import 'base/_grid';
+@import 'base/_typography';
+@import 'base/_layout';
+@import 'modules/_navigation';
+@import 'modules/_carousel';
 
-/*@import 'layout/_navigation';
-@import 'layout/_widgets';
-@import 'layout/_posts';
+/*
+@import 'modules/_widgets';
+@import 'modules/_posts';
 
-@import 'layout/_layout';*/
+*/
 @import '_shame';

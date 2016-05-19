@@ -2,4 +2,43 @@
 	background:$brand-primary;
         background-image:none !important;
 	color:$white;
-    }
+}
+    
+/*** Carousel ***/
+@mixin carousel-caption($bg,$pos,$top,$left,$align,$z) {
+    background: $bg;
+    position: $pos;
+    top: $top;
+    left: $left;
+    width: inherit;
+    text-align: $align;
+    text-shadow: none;
+    z-index: $z;
+}
+@mixin carousel-indicator-style($box-size,$bd,$indent,$color,$align) {
+    height: $box-size;
+    width: $box-size;
+    line-height: $box-size;
+    border: $bd;
+    text-indent: $indent;
+    color: $color;
+    text-align: $align;
+}
+@mixin carousel-control-style ($bg,$bd,$size,$weight,$box-size,$mg-t,$op,$pos,$top,$left,$align,$color,$bg-img){
+    background: $bg;
+    border: $bd;
+    font-size: $size;
+    font-weight: $weight;
+    height: $box-size;
+    line-height: $box-size - 10px;
+    margin-top: $mg-t;
+    opacity: $op;
+    position: $pos;
+    top: $top;
+    left: $left;
+    text-align: $align;
+    width: $box-size;
+    color: $color;
+    background-image: none;
+    text-shadow: none;
+}

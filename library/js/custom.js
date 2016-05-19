@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+	
     // run test on initial page load (and put firstly in document)
     checkSize();
     // run test on resize of the window
@@ -93,22 +94,7 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
-    //give active-class to first carousel item
-    $('.carousel-inner').each(function () {
-        $(this).children('.item:first-child').addClass('active');
-    });
-    $('.carousel-indicators').each(function () {
-        $(this).children('li:first-child').addClass('active');
-    });
 
-    //disable carousel controls if there is only one item
-    $('.carousel').each(function () {
-        //
-        if ($(this).children('.carousel-inner').children('.item').length === 1) {
-            $(this).children('.carousel-indicators').remove();
-            $(this).children('.carousel-control').remove();
-        }
-    });
 
     //related Articles
     if ($('.row.bottom').children('div').length) {

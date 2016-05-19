@@ -2,7 +2,10 @@
     li{
         .sub-menu{display:none;}
         list-style: none;
-        vertical-align:bottom;
+        /*vertical-align:bottom;*/
+        &:hover > .sub-menu{
+        	display: block;
+        }
         > a {
             @include border-radius(0);
             border:0;

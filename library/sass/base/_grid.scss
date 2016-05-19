@@ -1,0 +1,53 @@
+.container{
+	@include outer-container;
+	
+	&#header{
+	 > .logo{@include span-columns(4);}
+	 > .contact-data{@include span-columns(6);}
+	}
+	.panels {
+		@include display(flex);
+		@include justify-content(space-between);
+		@include align-items(stretch);
+		@media screen and (max-width:$screen-sm){@include flex-direction(column);}
+		@media screen and (min-width:$screen-md){@include flex-direction(row);}
+		
+		> * {
+			margin: 1em;
+		}
+		&.related{
+			> * {
+				@include flex(1);
+				}
+		}
+		&.subpages {
+			@include flex-wrap(wrap);
+			> * {
+				@include flex-grow(1);
+				@include flex-shrink(1);
+				@include flex-basis(calc(100%/4));
+			}
+			
+		}
+
+	}
+	.site-content{
+		@include outer-container;
+		@media screen and (min-width:$screen-md){
+			> .main-content{
+				@include span-columns(8);
+			}
+			> .sidebar{
+				@include span-columns(4);
+			}
+		}
+
+	}
+}
+#footer .footer-links{
+	@include outer-container;
+	 > * {@include span-columns(4);}
+}
+
+
+

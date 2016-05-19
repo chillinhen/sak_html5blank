@@ -9,7 +9,8 @@ endif;
 $newsArgs = array(
         'post_type' => 'post',
         'post_status' => 'publish',
-        'category_name' => 'aktuelles-' . $filter,
+        #'category_name' => 'aktuelles-' . $filter,
+        'category_name' => 'aktuelles',
         'posts_per_page' => -1,
         'orderby' => 'date',
         'order' => 'DESC'

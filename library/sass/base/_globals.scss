@@ -1,0 +1,36 @@
+*{
+	&:hover{cursor: pointer;}
+}
+.btn{
+	@include button-style (10px,.7em 1em, 1em );
+	
+	@media screen and (max-width:$screen-xs){
+		.row.submit & {
+			margin-bottom:1em;
+		}
+	}
+	
+	&:hover, &:focus {
+		color:#fff;
+	}
+	&.btn-inverse{
+        background-color: $bg-inverse;
+        color: $white;
+        background-image: none;
+        background-repeat: repeat-x;
+        border-color: transparent;
+        text-shadow: none;
+
+        .button-group & {
+            margin-right: 1em;
+            color:#fff;
+        }
+    }
+    &.btn-small {
+        @include button-style (3px,5px 10px, 0.850em );
+    }
+    .panel &{
+        color: $white;
+    }
+    &[disabled] {opacity: 1;}
+}

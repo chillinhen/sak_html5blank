@@ -64,7 +64,10 @@
             <!-- wrapper -->
             <main class="container">
 	            <!-- nav -->
-	            <nav class="nav" role="navigation">
+	            <nav id="mainNav" role="navigation">
+	            	<a class="affix-logo" ref="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name'); ?>">
+	            		<svg><use xlink:href="#logo-only"></use></svg>
+	            	</a>
 	                <?php html5blank_nav(); ?>
 	            </nav>
 	            <!-- /nav -->

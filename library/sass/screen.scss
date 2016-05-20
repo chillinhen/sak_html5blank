@@ -15,13 +15,16 @@
 @import 'base/_ui';
 @import 'base/_form';
 @import 'base/_media';
-@import 'base/_globals';
+
 */
 @import 'base/_grid';
 @import 'base/_typography';
+@import 'base/_globals';
 @import 'base/_layout';
 @import 'modules/_navigation';
 @import 'modules/_carousel';
+@import 'modules/_panels';
+@import 'modules/_events';
 
 /*
 @import 'modules/_widgets';

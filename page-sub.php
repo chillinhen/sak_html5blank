@@ -3,6 +3,7 @@
 	<?php get_template_part('partials/banner'); ?>
 	<?php if (have_posts()) : ?>
 		<div class="site-content">
+			<div id="breadcrumb"><?php breadcrumb_trail(); ?></div>
 			<div class="main-content"> 
 				<?php while (have_posts()) : the_post(); ?>
 					

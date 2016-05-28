@@ -5,9 +5,11 @@ function my_acf_add_local_field_groups() {
 	// Startseiten.Beiträge
 	get_template_part('/acF/acf-related','start');
 	//Banner
-	get_template_part('/acF/acf','banner');
+	get_template_part('/acf/acf','banner');
 	//Termine
-	get_template_part('/acF/acf','events');
+	get_template_part('/acf/acf','events');
+	//Sidebar
+	get_template_part('/acf/acf','ataglance');
 }
 add_action('acf/init', 'my_acf_add_local_field_groups');
 ?>

@@ -1,0 +1,24 @@
+#banner{
+	@include outer-container;
+	
+	html:not(.flexbox) & {		
+		> .banner-image, > .banner-half {
+			@media screen and (min-width:$screen-sm){
+				@include span-columns(6);
+			}
+		}
+	}
+
+	html.flexbox & {
+		@include display(flex);
+		@align-items(flex-end);
+		> .banner-image, > .banner-half {
+			@include flex-basis(50%);
+		}
+	}
+	
+	.banner-image{
+		text-align: right;
+	}
+
+}

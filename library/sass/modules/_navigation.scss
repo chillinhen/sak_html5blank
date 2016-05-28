@@ -10,7 +10,9 @@ ul[class*='menu']{
 	list-style: none;
 }
 
-
+.nav>li>a:focus{
+	background-color: transparent;
+}
 .nav-tabs > li > a {
 	color: $text-color;
 }
@@ -60,7 +62,7 @@ ul[class*='menu']{
         	top: auto;
         	left:auto;
         	z-index: 999;
-        	padding-bottom: 1em;
+        	padding:0 0 1em 0;
         }
         .sub-menu{
         	display: none;
@@ -183,7 +185,15 @@ ul[class*='menu']{
 	text-align: right;
 	color: $white;
 }
-
+/*** Breadcrumb ****/
+.breadcrumbs{
+	margin: 0.5em 0 2em 0;
+	border-bottom: 1px solid $border-color;
+	
+	h2.trail-browse{
+		display: none;
+	}
+}
 /*** Affix ***/
 .affix{
 	&#mainNav{

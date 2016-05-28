@@ -6,6 +6,7 @@
 	 > .contact-data{@include span-columns(6);}
 	}
 	.panels {
+		clear: both;
 		@include display(flex);
 		@include justify-content(space-between);
 		@include align-items(stretch);
@@ -25,7 +26,11 @@
 			> * {
 				@include flex-grow(1);
 				@include flex-shrink(1);
-				@include flex-basis(calc(100%/4));
+				@include flex-basis(calc(100%/3 - 2em));
+			}
+			> *:last-child{
+				@include flex-grow(0);
+				@include flex-shrink(0);
 			}
 			
 		}

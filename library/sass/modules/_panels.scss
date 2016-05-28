@@ -2,13 +2,12 @@
 	margin: -1em;
 }
 .panel{
-	@include flex-grow(0);
 	background:$bg-panel;
 	border: 1px solid $bd-panel;
 	padding: 1em;
 	position: relative;
 	
-	&:after{
+	.panels &:after{
 		content: '';
 		background: #f2f2f2 url('../img/bg_panel.png') left bottom no-repeat;
 		width: 63px;
@@ -21,7 +20,7 @@
 		position: absolute;
 		text-decoration: none;
 	}
-	&:hover:after{
+	.panels &:hover:after{
 		display: none;
 	}
 	.text{

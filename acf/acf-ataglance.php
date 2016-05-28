@@ -1,3 +1,4 @@
+<?php 
 acf_add_local_field_group(array (
 	'key' => 'group_56fa2ce467bbe',
 	'title' => 'Auf einen Blick-Neu',
@@ -60,3 +61,4 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
+?>

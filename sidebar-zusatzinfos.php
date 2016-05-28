@@ -13,7 +13,7 @@ $contactInfo = get_field('kontaktdaten');
 	$sideInfo = get_field('auf_einen_blick');
 	if ($sideInfo): ?>
 		<div class="widget acf-sideinfo">
-			<?php #echo $sideInfo; ?>
+			<?php echo $sideInfo; ?>
 		</div>
 	<?php endif; ?>
 	<?php // Sonderinfos

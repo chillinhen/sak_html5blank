@@ -27,6 +27,8 @@ if (!isset($content_width)) {
 }
 
 if (function_exists('add_theme_support')) {
+	//HTML % support
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
     // Add Menu Support
     add_theme_support('menus');
 
@@ -405,6 +407,7 @@ function html5blankcomments($comment, $args, $depth) {
         <?php endif; ?>
         <?php
     }
+    
 
 //Trim the excerpt
     remove_filter('get_the_excerpt', 'wp_trim_excerpt');
@@ -529,24 +532,6 @@ function html5blankcomments($comment, $args, $depth) {
     /* ------------------------------------*\
       ShortCode Functions
       \*------------------------------------ */
+      #include('inc/post-gallery-2.php');
 
-//Shortcodes in ACF
-function my_acf_format_value_for_api($value, $post_id, $field){
-	return str_replace( ']]>', ']]>', apply_filters( 'the_content', $value) );
-}
-function my_on_init(){
-	if(!is_admin()){
-		add_filter('acf/format_value_for_api/type=wysiwyg', 'my_acf_format_value_for_api', 10, 3);
-	}
-}
-add_action('init', 'my_on_init');
-// Shortcode Demo with Nested Capability
-    function html5_shortcode_demo($atts, $content = null) {
-        return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
-    }
 
-// Shortcode Demo with simple <h2> tag
-    function html5_shortcode_demo_2($atts, $content = null) { // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-        return '<h2>' . $content . '</h2>';
-    }
-    ?>

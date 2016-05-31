@@ -748,5 +748,7 @@ table.tablepress {
 @import 'modules/_posts';
 
 */
+.accordion {
+  border: 1px solid red; }
 
 /*# sourceMappingURL=screen.css.map */

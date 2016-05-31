@@ -2,6 +2,8 @@
 	
 	$(function () {
 		//alert('hallo');
+			/*** NIVO Lightbox ***/
+			$('a').nivoLightbox();
 		    //give active-class to first carousel item
 		    $('.carousel-inner').each(function () {
 		        $(this).children('.item:first-child').addClass('active');
@@ -44,9 +46,6 @@
         $('.table-responsive').removeClass('table-responsive');
     }
 
-
-
-
     $('.events table.tablepress').each(function () {
         if ($(this).children('tbody').children('tr').length < 5) {
             //alert('treffer');
@@ -68,4 +67,7 @@
 		
 	});
 	
+	
 })(jQuery, this);
+
+

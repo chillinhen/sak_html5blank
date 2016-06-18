@@ -1,22 +1,35 @@
-<?php 
-	remove_shortcode('gallery', 'gallery_shortcode');
-	add_shortcode('gallery', 'gallery_shortcode_sak');
-	function gallery_shortcode_sak($attr) {
-		global $post, $wp_locale;
-		$output = "";
-		$args = array( 'post_type' => 'attachment', 'numberposts' => -1, 'post_status' => null, 'post_parent' => $post->ID );
-		$attachments = get_posts($args);
-		if ($attachments) {
-			$output = '<div><ul>';
-			foreach ( $attachments as $attachment ) {
-				$output .= '<li><a rel="no-follow">';
-				$att_title = apply_filters( 'the_title' , $attachment->post_title );
-				$output .= wp_get_attachment_link( $attachment->ID , 'thumbnail', true );
-				$output .= '</a></li>';
-			}
-			$output = '</ul></div>';
-		}
-		return $output;
-		
-	}
-?>
+<?php get_header();?>
+<section role="content">
+	<?php get_template_part('partials/banner'); ?>
+	<?php if (have_posts()) : ?>
+		<div class="site-content">
+			<div id="breadcrumb"><?php breadcrumb_trail(); ?></div>
+			<div class="main-content"> 
+				<?php while (have_posts()) : the_post(); ?>
+					
+						<?php get_template_part('partials/article', 'page'); ?>
+					 			
+				<?php endwhile; 		
+				// event tables
+				if( have_rows('termine') ): ?>
+					<div class="events">
+				    <?php while ( have_rows('termine') ) : the_row();			
+				        $event_slug = get_sub_field('shortcode');
+						echo do_shortcode($event_slug);					
+				    endwhile; ?>			
+				  </div><!-- / .events -->
+					
+				<?php endif;?>
+				<!-- Contact Form -->
+				<?php 
+				$form_slug = get_field('kontaktformular');
+				if($form_slug): echo do_shortcode($form_slug); endif; ?>			
+				<!-- Sidebar -->
+			</div>	
+			<?php get_sidebar('zusatzinfos'); ?>
+		</div>
+    <!-- ToDo replace width repeater ??? -->
+<?php get_template_part('partials/related', 'articles'); ?>
+	<?php endif; wp_reset_query();?>
+</section>
+<?php get_footer(); ?>

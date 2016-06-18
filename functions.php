@@ -50,19 +50,17 @@ if (function_exists('add_theme_support')) {
         'default-color' => 'FFF',
         'default-image' => get_template_directory_uri() . '/img/default/default-bg.png'
     ));
-
+    
     //Add support for Custom Logo
-    function sak_custom_logo() {
-        add_theme_support('custom-logo', array(
+    add_theme_support('custom-logo', array(
         'height' => 184,
         'width' => 375,
         'flex-height' => true,
         'flex-width' => true,
         'header-text' => array('site-title', 'site-description'),
     ));
-    }
 
-/***** End Test Hooks *******************/
+    /***** End Test Hooks *******************/
 
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
@@ -117,7 +115,7 @@ add_filter('document_title_separator', 'sak_document_title_separator', 10);
 function html5blank_nav() {
     wp_nav_menu(
             array(
-                'theme_location' => 'header-menu',
+                'theme_location' => 'main-menu',
                 'menu' => '',
                 'container' => 'div',
                 'container_class' => 'menu-{menu slug}-container',
@@ -130,12 +128,13 @@ function html5blank_nav() {
                 'after' => '',
                 'link_before' => '',
                 'link_after' => '',
-                'items_wrap' => '<ul class="main-menu nav nav-tabs nav-justified">%3$s</ul>',
+                'items_wrap' => '<ul class="nav nav-tabs nav-justified">%3$s</ul>',
                 'depth' => 0,
                 'walker' => ''
             )
     );
 }
+
 
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts() {

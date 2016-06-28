@@ -1,35 +1,54 @@
-<?php get_header();?>
-<section role="content">
-	<?php get_template_part('partials/banner'); ?>
-	<?php if (have_posts()) : ?>
-		<div class="site-content">
-			<div id="breadcrumb"><?php breadcrumb_trail(); ?></div>
-			<div class="main-content"> 
-				<?php while (have_posts()) : the_post(); ?>
-					
-						<?php get_template_part('partials/article', 'page'); ?>
-					 			
-				<?php endwhile; 		
-				// event tables
-				if( have_rows('termine') ): ?>
-					<div class="events">
-				    <?php while ( have_rows('termine') ) : the_row();			
-				        $event_slug = get_sub_field('shortcode');
-						echo do_shortcode($event_slug);					
-				    endwhile; ?>			
-				  </div><!-- / .events -->
-					
-				<?php endif;?>
-				<!-- Contact Form -->
-				<?php 
-				$form_slug = get_field('kontaktformular');
-				if($form_slug): echo do_shortcode($form_slug); endif; ?>			
-				<!-- Sidebar -->
-			</div>	
-			<?php get_sidebar('zusatzinfos'); ?>
+<?php 
+// get carousel ids
+$ids = get_field('carousel', false, false);
+
+$carouselQuery = new WP_Query(array(
+	'post_type'      	=> 'carousel',
+	'posts_per_page'	=> 3,
+	'post__in'			=> $ids,
+	'post_status'		=> 'any',
+	'orderby'        	=> 'post__in',
+));
+
+if ($carouselQuery->have_posts()) : ?>
+    <?php
+    while ($carouselQuery->have_posts()) : $carouselQuery->the_post();
+    the_title();
+        #get_template_part('partials/carousel', 'item');
+    endwhile;
+    wp_reset_postdata();
+    ?>
+<?php endif; ?>
+
+
+<?php 
+
+$posts = get_field('carousel');
+$counter = 1;
+if( $posts ): ?>
+	<div id="bannerCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000" data-pause="hover">
+		<ol class="carousel-indicators">
+			<?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+				<?php setup_postdata($post); ?>
+				
+				<li data-target="#bannerCarousel" data-slide-to="<?php echo $counter; ?>"><?php echo $counter ++; ?> </li>
+			<?php endforeach; ?>
+		</ol>
+		<div class="carousel-inner">
+			<?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+				<?php setup_postdata($post); ?>
+				<?php get_template_part('partials/carousel', 'item'); ?>
+			<?php endforeach; ?>
 		</div>
-    <!-- ToDo replace width repeater ??? -->
-<?php get_template_part('partials/related', 'articles'); ?>
-	<?php endif; wp_reset_query();?>
-</section>
-<?php get_footer(); ?>
+		<!-- Controls -->
+		<a class="left carousel-control" href="#bannerCarousel" data-slide="prev">
+			<i class="fa fa-angle-left fa-2"></i>
+			<span><?php _e('Prevs','html5blank' )?></span>
+		</a>
+		<a class="right carousel-control" href="#bannerCarousel" data-slide="next">
+			<i class="fa fa-angle-right fa-2"></i>
+			<span><?php _e('Next','html5blank' )?></span>
+		</a>
+	</div>
+	<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+<?php endif; ?>

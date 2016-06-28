@@ -17,5 +17,5 @@ function my_acf_add_local_field_groups() {
         // Related Articles
         get_template_part('/acF/acf','related');
 }
-add_action('acf/init', 'my_acf_add_local_field_groups');
+//add_action('acf/init', 'my_acf_add_local_field_groups');
 ?>

@@ -11,7 +11,7 @@
 
 	html.flexbox & {
 		@include display(flex);
-		@align-items(flex-end);
+		@include align-items(flex-end);
 		> .banner-image, > .banner-half {
 			@include flex-basis(50%);
 		}

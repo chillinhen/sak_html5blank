@@ -1,16 +1,23 @@
 <?php /* Template Name: Uebersicht */ get_header(); ?>
-<!-- Page Content -->
-<?php if (have_posts()) : ?>
-	<?php while (have_posts()) : the_post(); ?>
-		<?php get_template_part('partials/banner'); ?>
-		<div class="site-content">
-			<div class="main-content"> 
-			<!-- ToDo -->
-			   <?php get_template_part('partials/article', 'page'); ?>
-			</div>
-		</div>
-	<?php endwhile;?>
+<?php get_template_part('partials/banner'); ?>
+<div class="site-content">
+    <?php if (have_posts()): ?>
+
+        <?php while (have_posts()) : the_post(); ?>
+            <div class="main-content">
+                <?php get_template_part('partials/article', 'page'); ?>
+            </div>
+            <?php get_sidebar('zusatzinfos'); ?>
+        <?php endwhile;
+    else:
+        ?>
+        <div class="main-content">
+    <?php get_template_part('partials/article', '404'); ?>
+        </div>
+
 <?php endif; ?>
-<!-- Panels -->
-<?php get_template_part('partials/panels','subpages');?>
+</div>
+<!-- Children -->
+<?php get_template_part('partials/subpages');?>
+
 <?php get_footer(); ?>

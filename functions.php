@@ -163,6 +163,13 @@ function html5blank_header_scripts() {
         // lightbox
         wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), false, true);
         wp_enqueue_script('nivo-lightbox');
+        
+        // maps
+        wp_register_script('googleapi', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array('jquery'), false, true);
+        wp_enqueue_script('googleapi');
+        
+        wp_register_script('custom-map', get_stylesheet_directory_uri() . '/library/js/custom-maps.js', array('jquery','googleapi'), false, true);
+        wp_enqueue_script('custom-map');
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!

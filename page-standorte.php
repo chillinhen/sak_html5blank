@@ -1,5 +1,5 @@
-<?php get_header(); ?>
-<?php get_template_part('partials/banner'); ?>
+<?php /* Template Name: Standorte */ get_header(); ?>
+<?php get_template_part('partials/map'); ?>
 <div class="site-content">
     <?php if (have_posts()): ?>
 

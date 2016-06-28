@@ -34,3 +34,31 @@
     }
     &[disabled] {opacity: 1;}
 }
+
+.iframe-elastic {
+    position: relative;
+    padding-bottom: 55%;
+    padding-top: 15px;
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .page-template-page-standorte-php & {pointer-events: none;}
+    }
+
+    .page-template-page-standorte-php &{
+        @media screen and (max-width:$screen-xs){
+            padding-bottom: 55% !important;  
+            margin-bottom:$vertical-spacing;
+        }
+        @media screen and (min-width:$screen-sm){
+            padding-bottom: 35% !important;
+            margin-bottom:$vertical-spacing;
+        }
+    }
+}

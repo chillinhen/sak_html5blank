@@ -1,13 +1,16 @@
-#logo{
-	border: 1px solid red;
-}
+
 .colPrimary{
- fill:$brand-primary;   
+    fill:$brand-primary;   
+}
+.colSecondary{
+    fill:$brand-secondary;   
 }
 .colBase{
     fill:lighten($brand-primary,100%);
 }
 .colGrey{
-	fill: $dark-gray;
+    fill: $dark-gray;
 }
-.logo-subline{display:none;}
+.logo-subline{
+    display:none;
+}

@@ -1,7 +1,6 @@
-<?php /* Template Name: Produktseite */ get_header(); ?>
-<section role="content">
-    <?php get_template_part('partials/banner'); ?>
+<?php /* Template Name: Produktseite */ get_header(); ?>  
     <?php if (have_posts()) : ?>
+    <?php get_template_part('partials/banner'); ?>
         <div class="site-content">
             <div id="breadcrumb"><?php breadcrumb_trail(); ?></div>
             <div class="main-content"> 
@@ -29,11 +28,10 @@
                 if ($form_slug): echo do_shortcode($form_slug);
                 endif;
                 ?>
-
+                
             </div>
             <?php get_sidebar('zusatzinfos'); ?>
         </div>
-    </section>
 <?php endif; ?>
 <?php get_template_part('partials/related', 'articles'); ?>
 </section>

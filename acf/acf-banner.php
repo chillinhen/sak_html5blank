@@ -1,26 +1,44 @@
 <?php 
+if( function_exists('acf_add_local_field_group') ):
+
 acf_add_local_field_group(array (
 	'key' => 'group_56de6227787b9',
-	'title' => 'Banner',
+	'title' => 'Banner im Top',
 	'fields' => array (
+		array (
+			'key' => 'field_56dd5251f15fc',
+			'label' => 'Überschrift(en)',
+			'name' => 'uberschriften',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
 		array (
 			'key' => 'field_56dd527cc4f83',
 			'label' => 'Banner Headline',
 			'name' => 'banner_headline',
 			'type' => 'text',
-			'instructions' => 'Wenn dieses Feld nicht ausgefüllt ist, wird hier die normale Überschrift angezeigt.',
+			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array (
-				'width' => 66,
+				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
 			'default_value' => '',
+			'maxlength' => '',
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
-			'maxlength' => '',
 			'readonly' => 0,
 			'disabled' => 0,
 		),
@@ -33,7 +51,7 @@ acf_add_local_field_group(array (
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array (
-				'width' => 66,
+				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
@@ -41,9 +59,26 @@ acf_add_local_field_group(array (
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
+			'formatting' => 'html',
 			'maxlength' => '',
 			'readonly' => 0,
 			'disabled' => 0,
+		),
+		array (
+			'key' => 'field_5704cf03df81c',
+			'label' => 'Bild',
+			'name' => '_kopieren',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
 		),
 		array (
 			'key' => 'field_56f3b3bb0797b',
@@ -54,12 +89,12 @@ acf_add_local_field_group(array (
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array (
-				'width' => 33,
+				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
 			'return_format' => 'array',
-			'preview_size' => 'thumbnail',
+			'preview_size' => 'wpbs-banner',
 			'library' => 'all',
 			'min_width' => '',
 			'min_height' => '',
@@ -73,14 +108,16 @@ acf_add_local_field_group(array (
 	'location' => array (
 		array (
 			array (
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'page',
-			),
-			array (
 				'param' => 'page_template',
 				'operator' => '!=',
-				'value' => 'page-home.php',
+				'value' => 'page-standorte.php',
+			),
+		),
+		array (
+			array (
+				'param' => 'page',
+				'operator' => '!=',
+				'value' => '817',
 			),
 		),
 	),
@@ -91,6 +128,8 @@ acf_add_local_field_group(array (
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => 1,
-	'description' => 'Hier bitte Überschriften eintragen und Bild auswählen:',
+	'description' => '',
 ));
+
+endif;
 ?>

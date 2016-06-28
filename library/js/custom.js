@@ -25,39 +25,6 @@ jQuery(document).ready(function ($) {
         }
     }
     
-    //shadowbox
-//    $('.thumbnails li a').each(function(){
-//        $(this).attr('rel','shadowbox[gallery]');
-//    });
-        // Gallery
-//    $('.gallery-item a').bind('touchstart click',function(e){
-//   e.preventDefault();
-//});
-//
-//    $('.attachment-img a').click(function(event){
-//        event.preventDefault();
-//    });
-
-//    $('.gallery-item a').nivoLightbox({ 
-//    effect: 'fade',                               // The effect to use when showing the lightbox 
-//    theme: 'default',                             // The lightbox theme to use 
-//    keyboardNav: true,                            // Enable/Disable keyboard navigation (left/right/escape) 
-//    onInit: function(){},                         // Callback when lightbox has loaded 
-//    beforeShowLightbox: function(){},             // Callback before the lightbox is shown 
-//    afterShowLightbox: function(lightbox){},      // Callback after the lightbox is shown 
-//    beforeHideLightbox: function(){},             // Callback before the lightbox is hidden 
-//    afterHideLightbox: function(){},              // Callback after the lightbox is hidden 
-//    onPrev: function(element){},                  // Callback when the lightbox gallery goes to previous item 
-//    onNext: function(element){},                  // Callback when the lightbox gallery goes to next item 
-//    errorMessage: 'The requested content cannot be loaded. Please try again later.' // Error message when content can't be loaded 
-//});
-//    
-//    $('.gallery-item a').each(function(){
-//        var gallery = $(this).parent().parent().parent('div');
-//        var galleryID = gallery.attr('id');
-//        //alert(galleryID);
-//        $(this).attr('data-lightbox-gallery',galleryID);
-//    });
     $('.wp-post-image, .attachment-acf-banner').each(function(){
         var altText = $(this).attr('alt');
         if (altText == 'logo-only'){
@@ -69,16 +36,6 @@ jQuery(document).ready(function ($) {
         //$(this).toggleClass('hover');
     });
     $('.gallery-caption').wrapInner('<span></span>');
-
-//    //overlay caption effect
-//    
-//
-//    //some specials fpr gallery partner
-//    $('.category-partner .gallery-caption > span').replaceWith(function () {
-//        var url = $.trim($(this).text());
-//        return '<a href="' + url + '" target="_blank">' + url + '</a>';
-//    });
-//    $('.category-partner .gallery-caption a').wrapInner('<span></span>');
 
     //window scroll funtion
     $(window).scroll(function () {
@@ -93,8 +50,6 @@ jQuery(document).ready(function ($) {
         $('html, body').animate({scrollTop: 0}, 800);
         return false;
     });
-
-
 
     //related Articles
     if ($('.row.bottom').children('div').length) {
@@ -190,11 +145,12 @@ jQuery(document).ready(function ($) {
 
     //elastic iframes
     $('iframe').wrap('<div class="iframe-elastic"></div>');
-    $('.page-template-page-standorte-php iframe').attr('id', 'map');
+    $('.iframe-elastic > iframe').attr('id', 'map');
 
     //enable pointer events by clicking on parent
-    $('.iframe-elastic, #wpgmza_map').click(function () {
-        $('#map,.gm-style').css('pointer-events', 'all');
+    $('.iframe-elastic').click(function () {
+       // $('#map,.gm-style').css('pointer-events', 'all');
+       alert('hallo');
     });
     // you want to disable pointer events when the mouse leave the canvas area;
     $("#map").mouseleave(function () {

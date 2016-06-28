@@ -27,31 +27,4 @@ function my_custom_post_carousel() {
 }
 
 add_action('init', 'my_custom_post_carousel');
-
-//Karten
-function my_custom_post_maps() {
-    $labels = array(
-        "name" => "Karten",
-        "singular_name" => "Karte",
-    );
-
-    $args = array(
-        "labels" => $labels,
-        "description" => "",
-        "public" => true,
-        "show_ui" => true,
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array("slug" => "karten", "with_front" => true),
-        "query_var" => true,
-        "supports" => array("title", "editor", "revisions", "author", "page-attributes"), "taxonomies" => array("category"));
-    register_post_type("karten", $args);
-}
-
-add_action('init', 'my_custom_post_maps');
-
 ?>

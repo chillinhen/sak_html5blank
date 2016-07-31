@@ -22,7 +22,7 @@ function my_custom_post_carousel() {
         "query_var" => true,
         "menu_position" => 12, 
         "menu_icon" => "http://overflow-hillen.de/library/img/backend/ico_carousel.svg", 
-        "supports" => array("title", "editor", "custom-fields", "revisions", "author", "page-attributes"), "taxonomies" => array("category"));
+        "supports" => array("thumbnail","title", "editor", "custom-fields", "revisions", "author", "page-attributes"), "taxonomies" => array("category"));
     register_post_type("carousel-item", $args);
 }
 

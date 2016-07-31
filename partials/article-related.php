@@ -10,7 +10,7 @@ $more = 0;
      endif;?>
     <h3 class="page-title" itemprop="headline"><?php the_title(); ?></h3>
 
-<?php the_excerpt(); ?>
+    <p><?php the_excerpt(); ?></p>
  <!-- show Button 'learn more' per custom field -->
     <?php get_template_part('partials/button', 'more_info'); ?>
     <footer class="clearfix">

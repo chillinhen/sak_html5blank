@@ -1,8 +1,284 @@
+/* =============================================================================
+   Variables & Mixins
+   ========================================================================== */
+@mixin headline-style ($weight,$mg-top, $mg-bottom){
+    font-family:'Titillium Web', Arial,Helvetica, sans-serif !important;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    font-weight:$weight;
+    margin-top: $mg-top;
+    margin-bottom: $mg-bottom;
+}
+%main-headline-style-h3{
+    font-size: 1.429em;
+    line-height: 1.2;
+    margin-top:1em;
+    margin-bottom: 0.5em;
+}
+%sidebar-headline-style-h3{
+    font-size: 1.286em;
+    font-weight: 600;
+    margin-top:0;
+    text-transform: none;
+}
+%sidebar-panel-style-h3{
+    color:#000;
+    margin-right:0;
+}
+%panel-headline-style{
+    font-size: 1.2em !important;
+    margin-top:0;
+    min-height:50px;
+}
+/* =============================================================================
+   Basics
+   ========================================================================== */
+
+html { font-size: 62.5%; -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+
+html, body, button, input, select, textarea { 
+    font-family:'Ubuntu', Arial,Helvetica, sans-serif; 
+    color: $text-color; }
+
+@media screen and (max-width:320px){
+    *{
+        word-wrap:break-word;
+    }
+}
+::-moz-selection { 
+    text-shadow: none;
+    @include active-style;
+}
+::selection { 
+    text-shadow: none;
+    @include active-style;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    font-size:14px;
+    font-weight:400;
+    line-height: 1.429;
+}
+/*------------------------------------------------
+TYPOGRAPHY
+--------------------------------------------------*/
+a {
+    &,&:link {
+        
+        text-decoration: none;
+        cursor:pointer;
+    }
+    .site-content & {
+        color: $brand-primary;
+        &:hover{
+           color: $brand-secondary; 
+           text-decoration: underline;
+        }
+    }
+    [class*="footer"] & {
+        color:$white;
+    }
+    &:visited, &.help:hover { 
+        text-decoration: none;
+    }
+    &.help i:hover { cursor: pointer }
+    &:hover,&:focus {outline:none;}
+
+    .btn > & {
+        color:inherit;
+        display: block;
+        cursor: pointer;
+    }
+}
+h1,h2,h3,h4, legend, .number, .widgettitle{
+    @include headline-style (400, 0, 1em);
+}
+h1 {
+    font-size:2.857em;
+    line-height: 1;
+    color: #000;
+    @media screen and (max-width:$screen-xs){
+        font-size:2em;
+    }
+    .panel &{
+        @extend %panel-headline-style; 
+    }
+    article &{
+        @extend h2;
+        color:$brand-primary;
+    }
+}
+h2 {
+    font-size:2.143em;
+    line-height: 1;
+    .category-link{margin-bottom: .2em;}
+    .panel &{
+        @extend %panel-headline-style;
+    }
+}
+
+h3 {
+    @extend %main-headline-style-h3;
+    .sidebar &, aside & {
+        @extend %sidebar-headline-style-h3;
+
+        a {
+            @extend %sidebar-panel-style-h3; 
+        }
+    }
+    .sidebar .panel &, aside .panel & {
+        @extend %sidebar-panel-style-h3; 
+        a {@extend %sidebar-panel-style-h3; }
+    }
+    .single-event & {
+        font-size:1em;
+        font-weight: 600;
+        color:$foo;
+    }
+    .panel & {
+    margin-right:2em;
+}
+    .panel & > a.ellipsis {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        word-wrap: break-word;
+        display:block;
+    }
+}
+h1, h2, h3 {
+    a{
+        &:hover{
+            text-decoration:none;
+            cursor:pointer;
+        }
+    }
+         &.collapseHeadline > a{
+
+            &:before{
+                padding-right: .5em;
+            } 
+
+            &:hover{
+                cursor:default;
+            }
+        }
+}
+h4,.h4,h5,.h5,h6,.h6 {
+    font-size: 1.2em;
+}
+legend {
+    border{
+        width:1px 0 0 0;
+        style:solid;
+        color:$border-color;
+        margin-top:1em;
+    }
+    &#anfrage:before, &#inquiry:before{
+        content: ' ';
+        display: block;
+        height: 65px;
+        margin: -65px 0 0;
+    }
+}
+/* Kleinerer Text */
+.s {
+    font-size: 0.9em;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 2px solid $brand-primary;
+}
+b,.bold, strong{
+    font-weight:bold
+}
+p, .close{
+    font-size: 1em;
+}
+.lead {
+    @media screen and (min-width: $screen-xs) {
+        font-size:1.143em;
+        font-weight:inherit;
+        line-height:inherit;
+        margin-bottom: 1.857em;
+
+        article.banner &, .banner-caption &{
+            margin-bottom: 1em;
+        }
+        .panel &{font-size: 1em;}
+    }
+}
+/***** Accordion Headlines****/
+.collapseHeadline, h2.tablepress-table-name, legend {
+    font-size:2em;
+    margin:1em 0 .5em 0;
+    @media screen and (max-width:$screen-xs){
+        font-size:1.4em;
+    }
+    > a {
+        span{
+            display: inline-block;
+            float:left;
+
+
+            @media screen and (max-width:$screen-xs){
+                width:80%; 
+            }
+            @media screen and (min-width:$screen-xs + 1){
+                width:90%;  
+            }
+        }
+
+        &.no-icon{
+            ~ i{display:none;}
+        }
+
+        i.fa{
+            float: left;
+            margin-right: 16px;
+        }
+        &:hover, &:active {
+            text-decoration: none;
+            outline: none; 
+        }
+    }
+    & + div {
+        @media screen and (max-width:$screen-xs){
+          padding-left:30px;  
+        }
+        @media screen and (min-width:$screen-xs + 1){
+            padding-left:40px;
+        }
+    }
+    #accordion & + div {
+        padding-left: 0;
+    }
+    
+    &:first-child{
+        margin-top:0;
+    }
+}
+/*------------------------------------------------
+Sonderfälle
+--------------------------------------------------*/
+.carousel-caption > *,
+legend, h2.category-link, h2.category-link a .panel h3, .number{
+    color: $brand-primary;
+}
+
 .copyright{
-	font-size: small;
-	text-align: center;
+    font-size: small;
+    text-align: center;
 }
 .breadcrumbs{
-	text-align: right;
-	
+    text-align: right;
+}
+.page-title{
+    body[class*="-standorte"] &,
+    body[class*="-main"]{
+        display: none;
+    }
 }

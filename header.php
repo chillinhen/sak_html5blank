@@ -36,38 +36,42 @@
     </head>
     <body <?php body_class(); ?>>
         <?php get_template_part('library/svg/inline', 'icons.svg'); ?>
-            <!-- header -->
-            <header id="header" class="container">
+        <!-- header -->
+        <header id="header" class="container">
 
-                <!-- logo -->
-                <div class="logo">
-                    <a href="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name'); ?>">
-                        <?php if ( has_custom_logo() ) : ?>
-                        
-                          <?php the_custom_logo(); ?>
-                        
-                        <?php else : ?>
-                        
-                          <svg><use xlink:href="#logo"></use></svg>
-                        	<!-- code for site title and description when there's no image -->
-                        <?php endif; ?>
-                    </a>
-                </div>
-                <!-- /logo -->
-                <!-- contact data -->
-                <div class="contact-data">
-                	<?php get_template_part('partials/header','contact');?>
-                </div>
+            <!-- logo -->
+            <div class="logo">
+                <a href="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name'); ?>">
+                    <?php if (has_custom_logo()) : ?>
 
-            </header>
-            <!-- /header -->
-            <!-- wrapper -->
-            <main class="container">
-	            <!-- nav -->
-	            <nav id="mainNav" role="navigation">
-	            	<a class="affix-logo" ref="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name'); ?>">
-	            		<svg><use xlink:href="#logo-only"></use></svg>
-	            	</a>
-	                <?php html5blank_nav(); ?>
-	            </nav>
-	            <!-- /nav -->
+                        <?php the_custom_logo(); ?>
+
+                    <?php else : ?>
+
+                        <svg><use xlink:href="#logo"></use></svg>
+                        <!-- code for site title and description when there's no image -->
+                    <?php endif; ?>
+                </a>
+            </div>
+            <!-- /logo -->
+            <!-- contact data -->
+            <div class="contact-data">
+                <?php get_template_part('partials/header', 'contact'); ?>
+            </div>
+
+        </header>
+        <!-- /header -->
+        <!-- wrapper -->
+        <main class="container">
+            <!-- nav -->
+            <nav id="mainNav" role="navigation">
+                <a class="affix-logo" ref="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name'); ?>"> </a>
+                <?php html5blank_nav(); ?>
+
+                <?php
+                if (is_active_sidebar('languages')) :
+                    dynamic_sidebar('languages');
+                endif;
+                ?>
+            </nav>
+            <!-- /nav -->

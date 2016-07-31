@@ -1,22 +1,19 @@
 .container{
     @include outer-container;
-
+    padding:0 $outer-grid;
     &#header{
         > .logo{@include span-columns(4);}
         > .contact-data{@include span-columns(6);}
     }
     .site-content{
-        
+        @include outer-container;
+        .main-content{@include span-columns(8);}
+        .sidebar{@include span-columns(4);}
     }
     .panels{
-        border:1px solid $foo;
         clear: both;
-        @include display(flex);
-        @include justify-content(space-between);
-        @include align-items(stretch);
-        @media screen and (max-width:$screen-sm){@include flex-direction(column);}
-        @media screen and (min-width:$screen-md){@include flex-direction(row);}
-        > * {
+        @include flexbox;
+         > * {
             margin: 1em;
         }
         &.related{
@@ -24,11 +21,10 @@
                 @include flex(1);
             }
         }
-        &.subpages {
+        &.subpanels {
+            
             @include flex-wrap(wrap);
             > * {
-                @include flex-grow(1);
-                @include flex-shrink(1);
                 @include flex-basis(calc(100%/3 - 2em));
             }
             > *:last-child{
@@ -37,8 +33,31 @@
             }
 
         }
+        &.smallpanels{
+            width:66%;
+            > .box {
+                @include flex-basis(50%);
+            }
+        }
+        .box {
+            @include display(flex);
+            @include flex-direction(column);
+            @include justify-content(space-between);
+            > .text{@include flex(2);}
+        }
     }
-    .accordion{
-        border:1px solid green;
+    .full-content{
+         @include outer-container;
+         > .box, > .related {
+             @include span-columns(4);
+         }
     }
+
+}
+.footer-info{
+     @include flexbox;
+     address{
+         @include flex(2);
+         text-align: center;
+     }
 }

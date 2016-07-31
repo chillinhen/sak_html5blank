@@ -51,10 +51,6 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
-    //related Articles
-    if ($('.row.bottom').children('div').length) {
-        $('.row.bottom').addClass('related');
-    }
 
     //sidebar and widgets ToDo -> ersetzen durch css icon-style
     $('.sidebar article ul li, .sidebar .widget ul li').each(function () {
@@ -76,7 +72,7 @@ jQuery(document).ready(function ($) {
     $('p').removeClass('lead');
 
     //show headlines in panels
-    $('.panel h3 a').each(function () {
+    $('.box h3 a').each(function () {
         $(this).hover(function () {
             $(this).parent('h3').siblings('a.more-link-corner').toggle();
             $(this).parent('h3').toggleClass('show');
@@ -201,19 +197,9 @@ jQuery(document).ready(function ($) {
     //collapse items
     $('.panel-collapse').collapse();
 
-    //external icons
-    $('a').filter(function () {
-        return this.hostname && this.hostname !== location.hostname;
-    }).append(' <i class="fa fa-external-link"></i>').attr('target', '_blank');
-//PDFs LInks
-    $("a[href$='pdf']")
-            .prepend('<i class="fa fa-file-pdf-o"></i> ')
-            .addClass('file')
-            .attr('target', '_blank');
-
 
     // tweek large headlines in panels for small devices
-    $('article.panel > h3').each(function () {
+    $('article.box > h3').each(function () {
         var headlineWidth = $(this).width();
         var linkWidth = $(this).children('a').width();
         

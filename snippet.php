@@ -1,54 +1,16 @@
-<?php 
-// get carousel ids
-$ids = get_field('carousel', false, false);
-
-$carouselQuery = new WP_Query(array(
-	'post_type'      	=> 'carousel',
-	'posts_per_page'	=> 3,
-	'post__in'			=> $ids,
-	'post_status'		=> 'any',
-	'orderby'        	=> 'post__in',
-));
-
-if ($carouselQuery->have_posts()) : ?>
-    <?php
-    while ($carouselQuery->have_posts()) : $carouselQuery->the_post();
-    the_title();
-        #get_template_part('partials/carousel', 'item');
-    endwhile;
-    wp_reset_postdata();
-    ?>
-<?php endif; ?>
 
 
-<?php 
 
-$posts = get_field('carousel');
-$counter = 1;
-if( $posts ): ?>
-	<div id="bannerCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000" data-pause="hover">
-		<ol class="carousel-indicators">
-			<?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-				<?php setup_postdata($post); ?>
-				
-				<li data-target="#bannerCarousel" data-slide-to="<?php echo $counter; ?>"><?php echo $counter ++; ?> </li>
-			<?php endforeach; ?>
-		</ol>
-		<div class="carousel-inner">
-			<?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-				<?php setup_postdata($post); ?>
-				<?php get_template_part('partials/carousel', 'item'); ?>
-			<?php endforeach; ?>
-		</div>
-		<!-- Controls -->
-		<a class="left carousel-control" href="#bannerCarousel" data-slide="prev">
-			<i class="fa fa-angle-left fa-2"></i>
-			<span><?php _e('Prevs','html5blank' )?></span>
-		</a>
-		<a class="right carousel-control" href="#bannerCarousel" data-slide="next">
-			<i class="fa fa-angle-right fa-2"></i>
-			<span><?php _e('Next','html5blank' )?></span>
-		</a>
-	</div>
-	<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-<?php endif; ?>
+if ($subLoop->have_posts()) : ?>
+<div class="<?php echo $selection; echo $columnGrid; ?>">
+    <?php while ($subLoop->have_posts()) : $subLoop->the_post(); 
+            if ($selection == 'panels') :
+                get_template_part('partials/panels', 'thumbnails');
+            elseif ($selection == 'accordion') :
+                get_template_part('partials/article', 'accordion');
+            endif;
+    endwhile; wp_reset_postdata(); ?>
+</div>
+<?php endif; endif; ?>
+
+

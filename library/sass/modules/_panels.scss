@@ -1,7 +1,8 @@
 .panels {
 	margin: -1em;
 }
-.panel{
+
+.box[class*="post"]{
 	background:$bg-panel;
 	border: 1px solid $bd-panel;
 	padding: 1em;

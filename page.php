@@ -7,8 +7,8 @@
             <div class="main-content">
                 <?php get_template_part('partials/article', 'page'); ?>
             </div>
-            <?php get_sidebar('zusatzinfos'); ?>
         <?php endwhile;
+  wp_reset_postdata();
     else:
         ?>
         <div class="main-content">

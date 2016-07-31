@@ -3,14 +3,19 @@
     <?php get_template_part('partials/banner'); ?>
         <div class="site-content">
             <div id="breadcrumb"><?php breadcrumb_trail(); ?></div>
-            <div class="main-content"> 
+            <div class="<?php echo (get_field('unterseite_mit_aufklappern')) ? "full-content" : "main-content";?>"> 
                 <?php while (have_posts()) : the_post(); ?>
                     <?php get_template_part('partials/article', 'page'); ?>
                 <?php endwhile; ?>
 
                 <?php
-                // event tables
-                if (have_rows('termine')):
+                 //Accordions
+                if (get_field('unterseite_mit_aufklappern')) :
+                    get_template_part('partials/accordion');
+                endif;?>
+
+                 <?php    // event tables
+               if (have_rows('termine')):
                     ?>
                     <div class="events">
                         <?php
@@ -28,11 +33,16 @@
                 if ($form_slug): echo do_shortcode($form_slug);
                 endif;
                 ?>
+               
                 
             </div>
-            <?php get_sidebar('zusatzinfos'); ?>
+            <?php if (!(get_field('unterseite_mit_aufklappern'))) : get_sidebar('zusatzinfos'); endif;?>
         </div>
+<?php else: ?>
+    <div class="main-content">
+        <?php get_template_part('partials/article', '404'); ?>
+    </div>
+
 <?php endif; ?>
 <?php get_template_part('partials/related', 'articles'); ?>
-</section>
 <?php get_footer(); ?>

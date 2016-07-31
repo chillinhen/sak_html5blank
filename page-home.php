@@ -1,27 +1,24 @@
 <?php /* Template Name: Startseite */ get_header(); ?>
-
+<?php get_template_part('partials/carousel'); ?>
 <?php if (have_posts()): ?>
-    
     <div class="site-content">
         <?php while (have_posts()) : the_post(); ?>
             <div class="main-content">
                 <?php the_content(); ?>
             </div>
-        <!-- Sidebar Aktuelles ToDO -->
-            <aside class="sidebar">
-                <h2 class="category-link"><?php _e('News', 'html5blank'); ?></h2>
-                <?php #get_template_part('partials/news');?>
-            </aside>
-            <?php endwhile;
+            <!-- Sidebar Aktuelles ToDO -->
+
+            <?php get_template_part('partials/news'); ?>
+
+        <?php endwhile;
         ?>
     </div>
+    <?php get_template_part('partials/panels', 'related'); ?>
 <?php else:
     ?>
     <div class="main-content">
         <?php get_template_part('partials/article', '404'); ?>
     </div>
 <?php endif; ?>
-<!-- Panels -->
-<?php get_template_part('partials/carousel'); ?>
-<?php get_template_part('partials/panels','related');?>
+<?php get_template_part('partials/related', 'articles'); ?>
 <?php get_footer(); ?>

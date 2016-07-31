@@ -29,10 +29,11 @@
     &.btn-small {
         @include button-style (3px,5px 10px, 0.850em );
     }
-    .panel &{
+    .box &{
         color: $white;
     }
     &[disabled] {opacity: 1;}
+    
 }
 
 .iframe-elastic {
@@ -60,5 +61,29 @@
             padding-bottom: 35% !important;
             margin-bottom:$vertical-spacing;
         }
+    }
+}
+
+.bubble {
+    @include bubble-style;
+
+    &:before, &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-style: solid outset;
+        width: 0;
+    }
+    &:before {
+        border-width: 33px 0 0 33px;
+        bottom: -33px;
+        left: 40px;
+        border-color: $light-gray transparent;
+    }
+    &:after {
+        border-width: 33px 0 0 33px;
+        bottom: -30px;
+        left: 39px;
+        border-color:$bubbleBG transparent;
     }
 }

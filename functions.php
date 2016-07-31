@@ -441,12 +441,25 @@ function html5blankcomments($comment, $args, $depth) {
         return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
     }
 
-    /* ------------------------------------*\
+    //Shortcodes in ACF
+function my_acf_format_value_for_api($value, $post_id, $field) {
+    return str_replace(']]>', ']]>', apply_filters('the_content', $value));
+}
+
+function my_on_init() {
+    if (!is_admin()) {
+        add_filter('acf/format_value_for_api/type=wysiwyg', 'my_acf_format_value_for_api', 10, 3);
+    }
+}
+add_action('init', 'my_on_init');
+
+/* ------------------------------------*\
       Actions + Filters + ShortCodes
       \*------------------------------------ */
 
 // Add Actions
     #add_action('after_setup_theme', 'sak_custom_logo');
+    
     add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
     add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
     add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments

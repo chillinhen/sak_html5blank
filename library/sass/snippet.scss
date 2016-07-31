@@ -1,28 +1,16 @@
-.container{
-	
 
-	.site-content{
-		@include outer-container;
-		@media screen and (min-width:$screen-md){
-			> .main-content{
-				@include span-columns(8);
-			}
-			> .sidebar{
-				@include span-columns(4);
-                                @include omega();
-			}
-		}
 
-	}
-        .full-content{
-            @include outer-container;
-        }
-}
-#footer .footer-info{
-	@include display(flex);
-	@include align-items(center);
-	@include justify-content(space-between);
-}
+
+
+
+
+
+
+/** "-style-h3" = qtip Style ***/
+
+
+
+
 
 
 

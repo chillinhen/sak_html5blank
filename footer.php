@@ -4,9 +4,15 @@
     <div class="service-links">
         <?php wp_nav_menu(array('theme_location' => 'service-menu', 'menu_class' => 'footer-menu left', 'container' => '', 'fallback_cb' => 'my_menu')); ?>
     </div>
-    <div class="sitemap">
-        <?php _e('Sitemap', 'html5blank'); ?>
-        <?php wp_nav_menu(array('theme_location' => 'main-menu', 'menu_class' => 'footer-main-menu', 'container' => '', 'fallback_cb' => 'my_menu')); ?>
+    <div id="accordion">
+        <h4 class="collapseHeadline">
+            <a data-toggle="collapse" data-parent="#accordion" href="#sitemap" aria-expanded="true" aria-controls="collapseOne">
+                <?php _e('Sitemap', 'html5blank'); ?>
+            </a>
+        </h4>
+        <div id="sitemap" class="collapse">
+            <?php wp_nav_menu(array('theme_location' => 'main-menu', 'menu_class' => 'footer-main-menu', 'container' => '', 'fallback_cb' => 'my_menu')); ?>
+        </div>
     </div>
     <div class="footer-info">
         <?php wp_nav_menu(array('theme_location' => 'footer-links', 'menu_class' => 'menu clearfix')); ?>
@@ -34,7 +40,8 @@
 <?php wp_footer(); ?>
 
 <!-- analytics -->
-<?php $analytics = get_field('analytics', 'option');
+<?php
+$analytics = get_field('analytics', 'option');
 if ($analytics):
     ?>
     <script>

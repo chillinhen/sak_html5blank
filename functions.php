@@ -41,7 +41,15 @@ if (function_exists('add_theme_support')) {
     add_image_size('wpbs-article', 300, 100, true);
     add_image_size('wpbs-banner', '', 200, true);
     
-    
+    //add SVG
+    function add_svg($svg_mime) {
+        $svg_mime['svg'] = 'image/svg+xml';
+        return $svg_mime;
+    }
+
+    add_filter('upload_mimes', 'add_svg');
+
+
     //replace deprecated wp_titlechr
     add_theme_support('title-tag');
 
@@ -146,7 +154,7 @@ function html5blank_header_scripts() {
         wp_register_script('modernizr', get_template_directory_uri() . '/library/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array(), '3.3.6'); // Modernizr
+        wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array(), '3.3.6', true); // Modernizr
         wp_enqueue_script('bootstrap'); // Enqueue it!
 
         if (wp_is_mobile()) {
@@ -170,6 +178,12 @@ function html5blank_header_scripts() {
         
         wp_register_script('custom-map', get_stylesheet_directory_uri() . '/library/js/custom-maps.js', array('jquery','googleapi'), false, true);
         wp_enqueue_script('custom-map');
+        
+        wp_register_script('webfontloader','https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js', array ('jquery'), false, false);
+        wp_enqueue_script('webfontloader');
+        
+         wp_register_script('fonts',get_stylesheet_directory_uri() . '/library/js/fonts.js', array ('jquery'), false, false);
+        wp_enqueue_script('fonts');
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
@@ -191,9 +205,7 @@ function html5blank_styles() {
     //bootstrap
     wp_register_style('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', array(), '3.3.6', 'all');
     wp_enqueue_style('bootstrap'); // Enqueue it!
-    //fonts
-    wp_register_style('googlefonts', 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic', 'style', '1.0', 'all');
-    wp_enqueue_style('googlefonts');
+
     //icons
     wp_register_style('fontawseome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', 'style', '4.4.0', 'all');
     wp_enqueue_style('fontawseome');

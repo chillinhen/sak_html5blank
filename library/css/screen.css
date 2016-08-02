@@ -62,6 +62,23 @@ html {
   width: 0px;
   height: 0px; }
 
+.wf-loading {
+  /*    @include alpha-background-color(rgba(black, 0.25), white);*/
+  background-color: black;
+  background-image: url("../img/spin.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  overflow: hidden; }
+  .wf-loading * {
+    opacity: 0; }
+
+.wf-active *,
+.wf-inactive * {
+  -webkit-transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out; }
+
 /*
 @import 'base/_ui';
 @import 'base/_form';

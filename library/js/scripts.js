@@ -1,13 +1,28 @@
 (function ($, root, undefined) {
 
     $(function () {
+        /*** responsive***/
+
+        $(window).bind("resize", resizeWindow);
+        function resizeWindow(e) {
+            var newWindowWidth = $(window).width();
+
+            // If width width is below 600px, switch to the mobile stylesheet
+            if (newWindowWidth < 600) {
+                $('.js .navbar-toggle').click(function (e) {
+                    $('body').toggleClass('active');
+                    e.preventDefault();
+                });
+            }
+
+        }
         /*** Language switch ***/
         $('.lang-item').each(function () {
             $(this).children('a').wrapInner('<span></span>');
         });
         /*** NIVO Lightbox ***/
         $('a').nivoLightbox();
-        
+
         //give active-class to first carousel item
         $('.carousel-inner').each(function () {
             $(this).children('.item:first-child').addClass('active');
@@ -34,22 +49,22 @@
                 }
             }
         })
-        
+
         //related Articles
         if ($('.row.bottom').children('div').length) {
             $('.row.bottom').addClass('related');
         }
         // Collapse Headlines
-            $('.collapseHeadline').each(function () {
-        $(this).addClass('clearfix');
-    });
-    $('.collapseHeadline > a').each(function () {
-        $(this).wrapInner('<span></span>');
-        $(this).children('span').before('<i class="fa fa-plus-circle"></i>');
-        $(this).click(function () {
-            $(this).parent().find('i').toggleClass('fa-minus-circle fa-plus-circle');
+        $('.collapseHeadline').each(function () {
+            $(this).addClass('clearfix');
         });
-    });
+        $('.collapseHeadline > a').each(function () {
+            $(this).wrapInner('<span></span>');
+            $(this).children('span').before('<i class="fa fa-plus-circle"></i>');
+            $(this).click(function () {
+                $(this).parent().find('i').toggleClass('fa-minus-circle fa-plus-circle');
+            });
+        });
         //EVENTS
         $('.events table.tablepress').addClass('events-table collapse');
         $('.tablepress').each(function () {
@@ -85,7 +100,7 @@
         });
 
         //elastic iframe & pointer events
-        
+
         $('iframe').wrap('<div class="iframe-elastic"></div>');
         $('.iframe-elastic > iframe').attr('id', 'map');
         //enable pointer events by clicking on parent
@@ -108,6 +123,8 @@
                 .attr('target', '_blank');
         // post edit link 
         $('.post-edit-link').wrapInner('<span></span>');
+
+
     });
 
 })(jQuery, this);

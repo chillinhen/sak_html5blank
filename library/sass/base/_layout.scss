@@ -3,6 +3,38 @@ body {
         * {
             color: #fff;
         }
+        .contact-data{
+            > a {
+                float:right;
+                 padding:0 .2em;
+                 border-right:1px solid currentColor;
+        
+                .fa{float:left;}
+                .fa-external-link{display:none;}
+                &:hover{
+                    color:inherit;
+                    opacity: .5;
+                }
+                &:last-child{border:0;}
+                @media screen and (max-width:$screen-smallPad){
+                    width: 100%;
+                    display:block;
+                    font-size: 6.5vW;
+                    float:none;
+                    border:0;
+                    
+                    i {
+                        display:inline-block;
+                        width: 44px;
+                    }
+                }
+                &.facebook span{
+                    @media screen and (min-width:$screen-sm){
+                        display:none;
+                    }
+                }
+            }
+        }
     }
     > main {
         background: $mainBg;

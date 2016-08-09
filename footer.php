@@ -33,8 +33,10 @@
     &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>
 </p>
 <!-- /copyright -->
-
 <div class="scroll-to-top"><i class="fa fa-angle-up fa-2x"></i></div>
+</div>
+<?php get_template_part('partials/nav','off-canvas');?>
+
 <!-- /container -->
 
 <?php wp_footer(); ?>

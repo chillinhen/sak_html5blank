@@ -1,6 +1,9 @@
 *{
 	&:hover{cursor: pointer;}
 }
+img {
+    max-width: 100%;
+}
 .btn{
 	@include button-style (10px,.7em 1em, 1em );
 	

@@ -36,6 +36,7 @@
     </head>
     <body <?php body_class(); ?>>
         <?php get_template_part('library/svg/inline', 'icons.svg'); ?>
+          <div id="wrapper">
         <!-- header -->
         <header id="header" class="container">
 
@@ -58,6 +59,11 @@
             <div class="contact-data">
                 <?php get_template_part('partials/header', 'contact'); ?>
             </div>
+            <a href="#mainNav" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
 
         </header>
         <!-- /header -->

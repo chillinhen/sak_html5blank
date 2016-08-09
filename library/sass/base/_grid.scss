@@ -2,8 +2,27 @@
     @include outer-container;
     padding:0 $outer-grid;
     &#header{
-        > .logo{@include span-columns(4);}
-        > .contact-data{@include span-columns(6);}
+        @media screen and (max-width:$screen-smallPad){
+            .logo{
+                margin:2.5 * $vertical-spacing 0 $vertical-spacing 0;
+                ~.navbar-toggle{
+                    position: absolute;
+                    top:0;
+                    right:0;
+                }
+            }
+        }
+        @media screen and (min-width:$screen-sm){
+            @include display(flex);
+            @include flex-direction(row);
+            @include align-items(flex-end);
+            > .logo{
+                @include flex-basis(25%);
+            }
+            > .contact-data{
+                @include flex-basis(75%);
+            }
+        }
     }
     .site-content{
         @include outer-container;
@@ -13,7 +32,7 @@
     .panels{
         clear: both;
         @include flexbox;
-         > * {
+        > * {
             margin: 1em;
         }
         &.related{
@@ -22,7 +41,7 @@
             }
         }
         &.subpanels {
-            
+
             @include flex-wrap(wrap);
             > * {
                 @include flex-basis(calc(100%/3 - 2em));
@@ -47,17 +66,20 @@
         }
     }
     .full-content{
-         @include outer-container;
-         > .box, > .related {
-             @include span-columns(4);
-         }
+        @include outer-container;
+        > .box, > .related {
+            @include span-columns(4);
+        }
     }
 
 }
 .footer-info{
-     @include flexbox;
-     address{
-         @include flex(2);
-         text-align: center;
-     }
+    @include flexbox;
+    address{
+        @include flex(2);
+        text-align: center;
+    }
+}
+#wrapper{
+    border:1px solid $foo;
 }

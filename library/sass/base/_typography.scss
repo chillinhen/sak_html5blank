@@ -211,6 +211,9 @@ p, .close{
         .panel &{font-size: 1em;}
     }
 }
+.contact-data{
+    @extend .lead;
+}
 /***** Accordion Headlines****/
 .collapseHeadline, h2.tablepress-table-name, legend {
     font-size:2em;

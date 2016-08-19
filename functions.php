@@ -229,7 +229,8 @@ function register_html5_menu() {
     register_nav_menus(array(// Using array to specify more menus if needed
         'main-menu' => __('Main Menu', 'html5blank'), // Main Navigation
         'service-menu' => __('Service Menu', 'html5blank'), // Sidebar Navigation
-        'footer-links' => __('Footer Links', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-links' => __('Footer Links', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+         'off-canvas' => __('Responsive', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 

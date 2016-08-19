@@ -93,23 +93,30 @@ ul[class*='menu']{
 }
 
 /*** Responsive Main Nav ****/
-.navbar-toggle {
+.toggle-nav {
     @media screen and (max-width:$screen-xs){
         margin:0;
     }
     @media screen and (min-width:$screen-xs + 1){
         margin:0 -2em;
     }
-    background:$brand-secondary;
-    @include border-radius (0);
-
-    .icon-bar {
-        background:$white;
+    @include toggle-nav-bar(44px,6px,$brand-primary,lighten($brand-primary,50%));
+}
+#offMenu{
+    background: $brand-primary;
+    position: fixed;
+    top:0;
+    left:-100%;
+    @include transition(all .25s ease-in-out);
+    bottom:0;
+    overflow:scroll;
+    *{color:white !important;}
+    &.open{
+        left:0;
+        @include transition(all .25s ease-in-out);
     }
 }
-#wrapper{
-    
-}
+
 /*** Service Menu **/
 .service-links{
     background: $brand-primary;
@@ -230,7 +237,7 @@ ul[class*='menu']{
 
         *{color: lighten($brand-primary,100%);}
     }
-    
+
 }
 .affix-logo{
     #mainNav.affix & {
@@ -260,11 +267,11 @@ ul[class*='menu']{
         right: 0;
     }
     background-color:$brand_primary;
-    
+
     * {color:#fff;}
-    
+
     ul{margin:0;padding:.5em 0;}
-    
+
     .lang-item{
         list-style:none;
         display:inline-block;

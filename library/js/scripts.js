@@ -49,6 +49,14 @@
                 }
             }
         })
+        
+        //OffCanvas Menu inkl. Hamburger Animation
+        
+	$('.toggle-nav').click(function(){
+		$(this).toggleClass('open');
+                $('#offMenu').toggleClass('open');
+	});
+
 
         //related Articles
         if ($('.row.bottom').children('div').length) {

@@ -80,10 +80,10 @@ html {
   @media screen and (max-width: 600px) {
     .container#header .logo {
       margin: 5em 0 2em 0; }
-      .container#header .logo ~ .navbar-toggle {
-        position: absolute;
-        top: 0;
-        right: 0; } }
+      .container#header .logo ~ .toggle-nav {
+        /*                    position: absolute;
+                            top:0;
+                            right:0;*/ } }
   @media screen and (min-width: 768px) {
     .container#header {
       display: -webkit-box;
@@ -720,6 +720,7 @@ ul[class*='menu'] {
     .nav.nav-tabs.nav-justified li > a {
       -webkit-border-radius: 0;
       border-radius: 0;
+      overflow: hidden;
       border: 0; }
       @media screen and (min-width: 768px) and (max-width: 992px) {
         .nav.nav-tabs.nav-justified li > a {
@@ -768,18 +769,83 @@ ul[class*='menu'] {
     margin-left: -2em; } }
 
 /*** Responsive Main Nav ****/
-.navbar-toggle {
-  background: #4385c8;
-  -webkit-border-radius: 0;
-  border-radius: 0; }
+.toggle-nav {
+  height: 44px;
+  width: 44px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  cursor: pointer; }
   @media screen and (max-width: 480px) {
-    .navbar-toggle {
+    .toggle-nav {
       margin: 0; } }
   @media screen and (min-width: 481px) {
-    .navbar-toggle {
+    .toggle-nav {
       margin: 0 -2em; } }
-  .navbar-toggle .icon-bar {
-    background: #fff; }
+  .toggle-nav span {
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #2466a8;
+    opacity: 1;
+    left: 0;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+    overflow: hidden;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out; }
+    .toggle-nav span:nth-child(1) {
+      top: 0px; }
+    .toggle-nav span:nth-child(2), .toggle-nav span:nth-child(3) {
+      top: 12px; }
+    .toggle-nav span:nth-child(4) {
+      top: 24px; }
+  .toggle-nav.open span {
+    background: #d5e6f6; }
+  .toggle-nav.open span:nth-child(1), .toggle-nav.open span:nth-child(4) {
+    top: 12px;
+    width: 0%;
+    left: 50%; }
+  .toggle-nav.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .toggle-nav.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+
+#offMenu {
+  background: #2466a8;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  bottom: 0;
+  overflow: scroll; }
+  #offMenu * {
+    color: white !important; }
+  #offMenu.open {
+    left: 0;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out; }
 
 /*** Service Menu **/
 .service-links {
@@ -1021,6 +1087,7 @@ ul[class*='menu'] {
   #bannerCarousel .carousel-control {
     -webkit-border-radius: 0;
     border-radius: 0;
+    overflow: hidden;
     background: transparent;
     border: 0;
     font-size: 3em;

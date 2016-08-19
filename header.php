@@ -59,7 +59,8 @@
             <div class="contact-data">
                 <?php get_template_part('partials/header', 'contact'); ?>
             </div>
-            <a href="#mainNav" class="navbar-toggle">
+            <a href="#offMenu" class="toggle-nav">
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

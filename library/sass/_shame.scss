@@ -1,0 +1,40 @@
+.menu-item{
+
+    #offMenu ul:not(.sub-menu) & > a{
+        padding:1em 1em 1em 2em;
+        display:block;
+        border-bottom: 1px solid currentColor;
+        text-transform: uppercase;
+        font-weight:bold;
+    }
+    #offMenu & > a:focus {
+        background: red;
+    }
+    #offMenu & {
+        &:not(.menu-item-has-children) > a {
+            margin-left: 7px;
+        }
+        &.menu-item-has-children > a:before {
+/*            @include icon-style ("\f0da", 0, 1, -14px, inherit);*/
+/*            margin-right:14px;*/
+        }
+        &.menu-item-has-children > a:before{
+            @include icon-style ("\f0da", 0, 1, -14px, inherit);
+        }
+        &.current_page_item.menu-item-has-children > a:before,
+        &.current-page-ancestor.menu-item-has-children > a:before{
+            @include icon-style ("\f0d7", 0, 1, -14px, inherit);
+        }
+    }
+    .sub-menu{
+        display:none;
+        &.show {
+            &, & .sub-menu,
+            .current_page_item.menu-item-has-children &{
+                display:block;
+            }
+
+        }
+    }
+
+}

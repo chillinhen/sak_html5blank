@@ -20,7 +20,8 @@
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        
         <meta name="description" content="<?php bloginfo('description'); ?>">
 
         <?php wp_head(); ?>
@@ -59,7 +60,7 @@
             <div class="contact-data">
                 <?php get_template_part('partials/header', 'contact'); ?>
             </div>
-            <a href="#offMenu" class="toggle-nav">
+            <a class="toggle-nav">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

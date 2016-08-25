@@ -694,20 +694,6 @@ body > header .contact-data > a {
 body > main {
   background: #F2F2F2; }
 
-@media screen and (max-width: 480px) {
-  #mainNav {
-    display: none; } }
-@media screen and (min-width: 480px) {
-  #mainNav {
-    display: block; } }
-
-@media screen and (max-width: 480px) {
-  #offMenu {
-    display: block; } }
-@media screen and (min-width: 480px) {
-  #offMenu {
-    display: none; } }
-
 .menu-item a:hover {
   text-decoration: none; }
 
@@ -847,8 +833,7 @@ ul[class*='menu'] {
   background: #2466a8;
   position: fixed;
   top: 0;
-  left: 0%;
-  right: 10%;
+  left: -100%;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
@@ -1351,36 +1336,5 @@ table.tablepress {
 @import 'modules/_posts';
 
 */
-#offMenu ul:not(.sub-menu) .menu-item > a {
-  padding: 1em 1em 1em 2em;
-  display: block;
-  border-bottom: 1px solid currentColor;
-  text-transform: uppercase;
-  font-weight: bold; }
-#offMenu .menu-item > a:focus {
-  background: red; }
-#offMenu .menu-item:not(.menu-item-has-children) > a {
-  margin-left: 7px; }
-#offMenu .menu-item.menu-item-has-children > a:before {
-  /*            @include icon-style ("\f0da", 0, 1, -14px, inherit);*/
-  /*            margin-right:14px;*/ }
-#offMenu .menu-item.menu-item-has-children > a:before {
-  font-family: 'FontAwesome';
-  content: "";
-  padding-right: 0;
-  opacity: 1;
-  margin-left: -14px;
-  font-size: inherit; }
-#offMenu .menu-item.current_page_item.menu-item-has-children > a:before, #offMenu .menu-item.current-page-ancestor.menu-item-has-children > a:before {
-  font-family: 'FontAwesome';
-  content: "";
-  padding-right: 0;
-  opacity: 1;
-  margin-left: -14px;
-  font-size: inherit; }
-.menu-item .sub-menu {
-  display: none; }
-  .menu-item .sub-menu.show, .menu-item .sub-menu.show .sub-menu, .current_page_item.menu-item-has-children .menu-item .sub-menu.show {
-    display: block; }
 
 /*# sourceMappingURL=screen.css.map */

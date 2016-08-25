@@ -149,41 +149,41 @@ function html5blank_header_scripts() {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
         wp_register_script('conditionizr', get_template_directory_uri() . '/library/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
-        wp_enqueue_script('conditionizr'); // Enqueue it!
+        //wp_enqueue_script('conditionizr'); // Enqueue it!
 
         wp_register_script('modernizr', get_template_directory_uri() . '/library/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
+        //wp_enqueue_script('modernizr'); // Enqueue it!
 
         wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array(), '3.3.6', true); // Modernizr
-        wp_enqueue_script('bootstrap'); // Enqueue it!
+        //wp_enqueue_script('bootstrap'); // Enqueue it!
 
         if (wp_is_mobile()) {
 
             wp_register_script('responsive', get_stylesheet_directory_uri() . '/library/js/responsive.js', array('jquery'), '1.2', true);
-            wp_enqueue_script('responsive');
+            //wp_enqueue_script('responsive');
         }
         // tooltips
-        wp_register_script('qtip', get_stylesheet_directory_uri() . '/library/js/jquery.qtip.min.js', array('jquery'), false, true);
-        wp_enqueue_script('qtip');
+        //wp_register_script('qtip', get_stylesheet_directory_uri() . '/library/js/jquery.qtip.min.js', array('jquery'), false, true);
+        //wp_enqueue_script('qtip');
 
-        wp_register_script('qtipcall', get_stylesheet_directory_uri() . '/library/js/qtipcall.js', array('jquery', 'qtip'), false, true);
-        wp_enqueue_script('qtipcall');
+        //wp_register_script('qtipcall', get_stylesheet_directory_uri() . '/library/js/qtipcall.js', array('jquery', 'qtip'), false, true);
+        //wp_enqueue_script('qtipcall');
         // lightbox
-        wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), false, true);
-        wp_enqueue_script('nivo-lightbox');
+        //wp_register_script('nivo-lightbox', get_stylesheet_directory_uri() . '/library/js/nivo-lightbox.min.js', array('jquery'), false, true);
+        //wp_enqueue_script('nivo-lightbox');
         
         // maps
-        wp_register_script('googleapi', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array('jquery'), false, true);
-        wp_enqueue_script('googleapi');
+        //wp_register_script('googleapi', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array('jquery'), false, true);
+        //wp_enqueue_script('googleapi');
         
-        wp_register_script('custom-map', get_stylesheet_directory_uri() . '/library/js/custom-maps.js', array('jquery','googleapi'), false, true);
-        wp_enqueue_script('custom-map');
+        //wp_register_script('custom-map', get_stylesheet_directory_uri() . '/library/js/custom-maps.js', array('jquery','googleapi'), false, true);
+        //wp_enqueue_script('custom-map');
         
-        wp_register_script('webfontloader','https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js', array ('jquery'), false, false);
-        wp_enqueue_script('webfontloader');
+       // wp_register_script('webfontloader','https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js', array ('jquery'), false, false);
+        //wp_enqueue_script('webfontloader');
         
-         wp_register_script('fonts',get_stylesheet_directory_uri() . '/library/js/fonts.js', array ('jquery'), false, false);
-        wp_enqueue_script('fonts');
+        // wp_register_script('fonts',get_stylesheet_directory_uri() . '/library/js/fonts.js', array ('jquery'), false, false);
+        //wp_enqueue_script('fonts');
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
@@ -194,7 +194,7 @@ function html5blank_header_scripts() {
 function html5blank_conditional_scripts() {
     if (is_page('pagenamehere')) {
         wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
+       // wp_enqueue_script('scriptname'); // Enqueue it!
     }
 }
 

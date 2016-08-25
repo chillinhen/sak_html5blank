@@ -1,3 +1,19 @@
+#mainNav{
+    @media screen and (max-width:$screen-xs){
+        display:none;
+    }
+    @media screen and (min-width:$screen-xs){
+        display:block;
+    }
+}
+#offMenu{
+    @media screen and (max-width:$screen-xs){
+        display:block;
+    }
+    @media screen and (min-width:$screen-xs){
+        display:none;
+    }
+}
 .menu-item{
     a{
         &:hover{
@@ -106,7 +122,8 @@ ul[class*='menu']{
     background: $brand-primary;
     position: fixed;
     top:0;
-    left:-100%;
+    left:0%;
+    right:10%;
     @include transition(all .25s ease-in-out);
     bottom:0;
     overflow:scroll;

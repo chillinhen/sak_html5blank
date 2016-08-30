@@ -1,31 +1,28 @@
-(function ($, root, undefined) {
-
+;
+(function ($) {
+    // DOM ready
     $(function () {
-        //alert('hallo');
-                // Nav Button
-        var navButton = $('.menu-item > a');
-        var tapped = false;
-        //navButton.addClass('foo');
-        navButton.on("touchstart", function (e) {
-            if (!tapped) { //if tap is not set, set up single tap
-                tapped = setTimeout(function () {
-                    e.preventDefault();
-                    //alert('single-tap');
-                    
-                    //insert things you want to do when single tapped
-                }, 300);   //wait 300ms then run single click code
-                $(this).siblings('ul').toggleClass('show');
-            } else {    //tapped within 300ms of last tap. double tap
-                clearTimeout(tapped); //stop single tap callback
-                window.location.href = $(this).attr('href');
-                //insert things you want to do when double tapped
-            }
-            e.preventDefault()
-        });
+        // Go jQuery
+        $('.nav').append($('<div class="nav-mobile"></div>'));
+		
+		// Add a <span> to every .nav-item that has a <ul> inside
+		$('.nav-item').has('ul').prepend('<span class="nav-click"><i class="fa fa-caret-down" aria-hidden="true"></i></span>');
+		
+		// Click to reveal the nav
+		$('.nav-mobile').click(function(){
+			$('.nav-list').toggle();
+		});
+	
+		// Dynamic binding to on 'click'
+		$('.nav-list').on('click', '.nav-click', function(){
+		
+			// Toggle the nested nav
+			$(this).siblings('.nav-submenu').toggle();
+			
+			// Toggle the arrow using CSS3 transforms
+			$(this).children('.nav-arrow').toggleClass('nav-rotate');
+			
+		});
 
     });
-
-})(jQuery, this);
-//$(this).siblings('ul').toggleClass('show');
-
-
+})(jQuery);

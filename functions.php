@@ -159,8 +159,9 @@ function html5blank_header_scripts() {
 
         if (wp_is_mobile()) {
 
-            wp_register_script('responsive', get_stylesheet_directory_uri() . '/library/js/responsive.js', array('jquery'), '1.2', true);
+            //wp_register_script('responsive', get_stylesheet_directory_uri() . '/library/js/responsive.js', array('jquery'), '1.2', true);
             //wp_enqueue_script('responsive');
+            
         }
         // tooltips
         //wp_register_script('qtip', get_stylesheet_directory_uri() . '/library/js/jquery.qtip.min.js', array('jquery'), false, true);

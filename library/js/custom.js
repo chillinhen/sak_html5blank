@@ -104,11 +104,10 @@ jQuery(document).ready(function ($) {
 
     //EVENTS
     $('.events table.tablepress').addClass('events-table collapse');
-    $('.tablepress').each(function () {
-        //alert(this.id);
-        $(this).wrap('<div class="table-responsive"></div>');
-        $(this).parent('div').siblings('h2').wrapInner('<a data-toggle="collapse" class="showToggle" href="#' + this.id + '"></a>').addClass('collapseHeadline');
-        ;
+    $('h2.tablepress-table-name').wrapInner('<a data-toggle="collapse" class="showToggle"></a>');
+    $.each($('.tablepress'), function () {
+       $( "#" + this.id ).prev('h2').addClass('collapseHeadline').children('a').attr('href','#' + this.id);
+       $( "#" + this.id ).wrap('<div class="table-responsive"></div>');
     });
 
     //responsive table

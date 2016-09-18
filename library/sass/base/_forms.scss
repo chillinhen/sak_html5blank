@@ -1,0 +1,89 @@
+/*------------------------------------------------
+Formulare
+--------------------------------------------------*/
+
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="confirm_email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {    
+    @media screen and (max-width:$screen-sm){
+        
+    }
+    @media screen and (min-device-width:$screen-sm + 1) and (orientation:portrait){
+        width: 90%;/*_NO__DOTCOMMA__AFTER__ */
+        padding: 2% 5%; 
+    }
+}
+@media screen and (min-width:$screen-md){
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        @include appearance(none);
+        margin: 0; 
+    }
+    input[type=number] {-moz-appearance: textfield;}
+}
+select {
+    -webkit-appearance: none;
+    /*          -moz-appearance:none;*/
+    appearance:none;
+    line-height:20px;   
+}
+textarea {
+    max-height: 120px;
+    overflow: auto;
+    resize: vertical;
+}
+
+.wpcf7{
+    margin-bottom: 2em;
+}
+.wpcf7-not-valid,
+.wpcf7-validation-errors,
+.wpcf7-message-mail-sent-ng,
+.wpcf7-message-spam,
+.wpcf7-message-invalid-email,
+.wpcf7-message-upload-failed-php-error{ 
+    border: 2px solid $brand-danger;
+    background:$brand-warning;
+}
+.wpcf7-message-accept-terms,
+.wpcf7-message-upload-failed,
+.wpcf7-message-upload-file-type-invalid,
+.wpcf7-message-upload-file-too-large{
+    background: $brand-danger;
+    color:$white;
+}
+.wpcf7-mail-sent-ok {
+    font-size: large;
+    color: $brand-success;
+    font-style: italic;
+    line-height: 2;
+    padding: 2em;
+    border: 0;
+    background: transparent;
+}
+.row.checkbox > [class*="-12"]{
+    padding:0;
+}
+.checkbox input[type="checkbox"]{
+    float:none;
+    margin: 0;
+}
+.checkbox span.wpcf7-form-control-wrap{margin-right:2em;}

@@ -1,8 +1,23 @@
-/* =============================================================================
+@import "reset.css";
+
+$base-font-size:            100% !default;
+$base-line-height:          150% !default;
+$rem-base:                  14px !default;
+
+$paragraph-margin:          1rem;
+
+$headings-font-family:    'Titillium Web', Arial,Helvetica, sans-serif !important;
+$body-font-family:        'Ubuntu', Arial,Helvetica, sans-serif; 
+
+$heading-text-color:        $brand-primary;
+$body-text-color:           $text-color;
+$text-muted-color:          lighten($text-color,25%);
+ %bold{font-weight:600};/** depends on font-fammily**/
+ /* =============================================================================
    Variables & Mixins
    ========================================================================== */
 @mixin headline-style ($weight,$mg-top, $mg-bottom){
-    font-family:'Titillium Web', Arial,Helvetica, sans-serif !important;
+    font-family:$headings-font-family;
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
     font-weight:$weight;
@@ -11,6 +26,9 @@
 }
 %main-headline-style-h3{
     font-size: 1.429em;
+    @media screen and (max-device-width:$screen-xs) and (orientation:portrait){
+        font-size:1.2em;
+    }
     line-height: 1.2;
     margin-top:1em;
     margin-bottom: 0.5em;
@@ -37,14 +55,9 @@
 html { font-size: 62.5%; -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
 
 html, body, button, input, select, textarea { 
-    font-family:'Ubuntu', Arial,Helvetica, sans-serif; 
+    font-family:$body-font-family;
     color: $text-color; }
 
-@media screen and (max-width:320px){
-    *{
-        word-wrap:break-word;
-    }
-}
 ::-moz-selection { 
     text-shadow: none;
     @include active-style;
@@ -53,22 +66,25 @@ html, body, button, input, select, textarea {
     text-shadow: none;
     @include active-style;
 }
-
+.element {
+  @include selection(true) {
+    background-color: #ffbb52;
+  }
+}
+// body typography
 body {
     text-rendering: optimizeLegibility;
-    font-size:14px;
+    font-size:$rem-base;
     font-weight:400;
-    line-height: 1.429;
+    line-height: $base-line-height;
 }
-/*------------------------------------------------
-TYPOGRAPHY
---------------------------------------------------*/
 a {
     &,&:link {
         
         text-decoration: none;
         cursor:pointer;
     }
+    
     .site-content & {
         color: $brand-primary;
         &:hover{
@@ -93,9 +109,32 @@ a {
 }
 h1,h2,h3,h4, legend, .number, .widgettitle{
     @include headline-style (400, 0, 1em);
+    line-height: 1.1;
+    color: $heading-text-color;
+
+    a{
+        text-decoration: none;
+        color: $brand-primary;
+    }
 }
+.page-title{
+    @media screen and (max-width:$screen-smallPad){
+        margin-top:0;
+        word-wrap: initial;
+        .page-header &{
+            display:none;
+        }
+    }
+
+    body.search & {display: block;}
+    body[class*="-standorte"] &,
+    body[class*="-main"]{
+        display: none;
+    }
+}
+// different font-sizes
 h1 {
-    font-size:2.857em;
+    font-size:1.5 * $rem-base;
     line-height: 1;
     color: #000;
     @media screen and (max-width:$screen-xs){
@@ -109,12 +148,21 @@ h1 {
         color:$brand-primary;
     }
 }
+
 h2 {
-    font-size:2.143em;
+    font-size:2.143 * $rem-base;
     line-height: 1;
     .category-link{margin-bottom: .2em;}
     .panel &{
         @extend %panel-headline-style;
+    }
+    @media screen and (max-width:$screen-xs){
+        font-size:1.5em;
+    }
+    &.page-title{
+        @media screen and (min-width:$screen-md){
+            display:none;
+        }
     }
 }
 
@@ -127,7 +175,7 @@ h3 {
             @extend %sidebar-panel-style-h3; 
         }
     }
-    .sidebar .panel &, aside .panel & {
+    .sidebar .box &, aside .box & {
         @extend %sidebar-panel-style-h3; 
         a {@extend %sidebar-panel-style-h3; }
     }
@@ -136,10 +184,10 @@ h3 {
         font-weight: 600;
         color:$foo;
     }
-    .panel & {
+    .box & {
     margin-right:2em;
 }
-    .panel & > a.ellipsis {
+    .box & > a.ellipsis {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
@@ -148,6 +196,7 @@ h3 {
         display:block;
     }
 }
+
 h1, h2, h3 {
     a{
         &:hover{
@@ -166,9 +215,11 @@ h1, h2, h3 {
             }
         }
 }
+
 h4,.h4,h5,.h5,h6,.h6 {
     font-size: 1.2em;
 }
+
 legend {
     border{
         width:1px 0 0 0;
@@ -183,20 +234,141 @@ legend {
         margin: -65px 0 0;
     }
 }
-/* Kleinerer Text */
-.s {
-    font-size: 0.9em;
+// paragraph text
+p {
+    margin: 0 0 $paragraph-margin;
+    font-family: inherit;
+    font-size: $rem-base;
+    font-weight: normal;
+    line-height: $base-line-height;
+
+
+    &.lead {
+        font-size: 1rem * 1.125;
+        line-height: 1.33;
+    }
 }
 
-/* Blockquotes */
-blockquote {
-    border-left: 2px solid $brand-primary;
+a{
+    color:$text-color;
+    .logo &{
+        body.home & {color:#fff;}
+    }
+    .footer &{
+        text-decoration: none;
+    }
 }
+// lists
+ul,
+ol {
+    padding-left: 1.5rem;
+
+    li {
+        line-height: $base-line-height;
+    }
+
+    &.unstyled {
+        padding: 0;
+        list-style: none;
+    }
+
+    &.inline {
+        margin: 0 1rem $paragraph-margin -1rem;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+
+        & > li {
+            display: block;
+            float: left;
+            margin-left: 1rem;
+            list-style: none;
+        }
+    }
+}
+
+dl {
+    margin: 0 0 $paragraph-margin;
+    line-height: $base-line-height;
+}
+
+dt {
+    font-weight: bold;
+    /** oder **/
+    @extend %bold;
+}
+
+dd {
+    margin: 0 0 0.5rem;
+}
+
 b,.bold, strong{
     font-weight:bold
 }
 p, .close{
     font-size: 1em;
+}
+// blockquotes
+blockquote {
+    border-left: 2px solid $brand-primary;
+    position: relative;
+    margin: 1.5rem 1rem 1.5rem 3rem;
+    text-align: left;
+
+    p {
+        @extend .lead;
+    }
+
+    &:before {
+        content: "“";
+        display: block;
+        position: absolute;
+        top: -1rem;
+        left: -3rem;
+        color: $text-muted-color;
+        font-size: 5rem;
+        line-height: 1;
+    }
+}
+address{
+    font-style: normal;
+    .footer & {
+        
+        p{
+            margin-bottom: $paragraph-margin * 0.2;
+            font-size: .8rem;
+        }
+        > div {
+            margin-bottom: $paragraph-margin * 0.5
+        }
+    }
+}
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-muted { color: $text-muted-color; }
+.text-smaller {font-size: smaller;}
+.uppercase{
+    text-transform:uppercase;
+}
+
+/*** tables ****/
+table {
+    width:100%;
+    margin-bottom:2em;
+}
+/**** Misc ***/
+.screen-reader-text{
+	clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+/* Kleinerer Text */
+.s {
+    font-size: 0.9em;
 }
 .lead {
     @media screen and (min-width: $screen-xs) {
@@ -249,14 +421,15 @@ p, .close{
         }
     }
     & + div {
-        @media screen and (max-width:$screen-xs){
-          padding-left:30px;  
+        @media screen and (max-width:$screen-sm){
+          padding-left:0px;  
         }
-        @media screen and (min-width:$screen-xs + 1){
+        @media screen and (min-width:$screen-sm + 1){
             padding-left:40px;
         }
     }
-    #accordion & + div {
+    
+    .accordion & + div {
         padding-left: 0;
     }
     
@@ -277,11 +450,5 @@ legend, h2.category-link, h2.category-link a .panel h3, .number{
     text-align: center;
 }
 .breadcrumbs{
-    text-align: right;
-}
-.page-title{
-    body[class*="-standorte"] &,
-    body[class*="-main"]{
-        display: none;
-    }
+    @media screen and (min-width:$screen-md){text-align: right;}
 }

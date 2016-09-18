@@ -1,4 +1,5 @@
-body {
+#wrapper {
+    
     > header{
         * {
             color: #fff;
@@ -19,7 +20,7 @@ body {
                 @media screen and (max-width:$screen-smallPad){
                     width: 100%;
                     display:block;
-                    font-size: 6.5vW;
+                    font-size: 5vW;
                     float:none;
                     border:0;
                     

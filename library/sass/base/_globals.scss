@@ -3,6 +3,9 @@
 }
 img {
     max-width: 100%;
+    .logo & {
+        max-width:none; 
+    }
 }
 .btn{
 	@include button-style (10px,.7em 1em, 1em );
@@ -88,5 +91,13 @@ img {
         bottom: -30px;
         left: 39px;
         border-color:$bubbleBG transparent;
+    }
+}
+
+.table-responsive{
+    border:0;
+    @media screen and (max-width:$screen-xs){
+        border-top:1px solid $border-color;
+        border-bottom:1px solid $border-color; 
     }
 }

@@ -16,6 +16,9 @@
 }
 
 .post-edit-link{
+    font-size:small;
+    text-transform:none;
+
     &:before{
         @include icon-style ("\f040", .5em, 1, .5em, .5em);
     }

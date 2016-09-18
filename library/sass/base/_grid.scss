@@ -2,14 +2,14 @@
     @include outer-container;
     padding:0 $outer-grid;
     &#header{
-        @media screen and (max-width:$screen-smallPad){
+        @media screen and (max-width:$screen-maxPhone){
             .logo{
-                margin:2.5 * $vertical-spacing 0 $vertical-spacing 0;
-                ~.toggle-nav{
-/*                    position: absolute;
-                    top:0;
-                    right:0;*/
+                @media screen and (orientation:portrait){
+                    margin:$vertical-spacing/2 1.5*$vertical-spacing $vertical-spacing/2 0;
                 }
+                @media screen and (orientation:landscape){
+                    margin:$vertical-spacing/2 50% $vertical-spacing/2 0;
+                } 
             }
         }
         @media screen and (min-width:$screen-sm){
@@ -26,12 +26,16 @@
     }
     .site-content{
         @include outer-container;
-        .main-content{@include span-columns(8);}
-        .sidebar{@include span-columns(4);}
+        @media screen and (min-device-width:$screen-md) and (orientation:landscape){
+            .main-content{@include span-columns(8);}
+            .sidebar{@include span-columns(4);}
+        }
     }
     .panels{
-        clear: both;
-        @include flexbox;
+        clear:both;
+        @include display(flex);
+        @include justify-content(space-between);
+        @include align-items(stretch);
         > * {
             margin: 1em;
         }
@@ -40,35 +44,47 @@
                 @include flex(1);
             }
         }
-        &.subpanels {
-
-            @include flex-wrap(wrap);
-            > * {
-                @include flex-basis(calc(100%/3 - 2em));
-            }
-            > *:last-child{
-                @include flex-grow(0);
-                @include flex-shrink(0);
-            }
-
-        }
         &.smallpanels{
-            width:66%;
-            > .box {
-                @include flex-basis(50%);
-            }
+            border:1px solid green;
+/*            width:66%;*/
+        }
+        &.subpanels{
+             @include flex-wrap(wrap);
+             @include flex-grow(1);
+             > * {
+                 @media screen and (max-width:$screen-smallPad){
+                     @include flex-basis(calc(100%));
+                     margin-bottom:2em;
+                 }
+                 @media screen and (min-width:$screen-smallPad)and (max-width:$screen-md - 1){
+                     @include flex-basis(calc(100%/2 - 2em));
+                 }
+                 @media screen and (min-width:$screen-md){
+                     @include flex-basis(calc(100%/3 - 2em));
+                     &:last-child{
+                         @include flex-grow(0);
+                         @include flex-shrink(0);  
+                     }
+                 }
+             }
         }
         .box {
-            @include display(flex);
-            @include flex-direction(column);
-            @include justify-content(space-between);
-            > .text{@include flex(2);}
+            @media screen and (min-width:$screen-smallPad){
+                @include display(flex);
+                @include flex-direction(column);
+                @include justify-content(space-between);
+                > .text{@include flex(2);}
+            }
+
         }
+
     }
     .full-content{
         @include outer-container;
         > .box, > .related {
-            @include span-columns(4);
+            @media screen and (min-width:$screen-sm){
+                @include span-columns(4);
+            }  
         }
     }
 
@@ -79,7 +95,4 @@
         @include flex(2);
         text-align: center;
     }
-}
-#wrapper{
-    border:1px solid $foo;
 }

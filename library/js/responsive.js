@@ -1,8 +1,5 @@
 jQuery(document).ready(function ($) {
-    $('.js .navbar-toggle').click(function (e) {
-        $('body').toggleClass('active');
-        e.preventDefault();
-    });
+
     
     //set languages menu
 //    var positionTop = $('#header').height();

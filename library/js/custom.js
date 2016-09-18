@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
 
 //some tweaks for smaller windows
     function checkSize() {
-        if ($(".navbar-toggle").css("display") == "block") {
+        if ($(".toggle-nav").css("display") == "block") {
             
             $('.languages-menu').affix({
                 offset: 50
@@ -18,12 +18,15 @@ jQuery(document).ready(function ($) {
                 offset: 50
             })
             //switch justified nav
-            $('.row.navigation ul.nav.navbar-nav').addClass('nav-tabs').addClass('nav-justified').removeClass('navbar-nav');
-            $('.current_page_item').parent('ul').parent('li').addClass('active');
-            $('li.active').parent('ul').parent('li').addClass('active').parent('ul').parent('li').addClass('active');
+            //$('.row.navigation ul.nav.navbar-nav').addClass('nav-tabs').addClass('nav-justified').removeClass('navbar-nav');
+            //$('.current_page_item').parent('ul').parent('li').addClass('active');
+            //$('li.active').parent('ul').parent('li').addClass('active').parent('ul').parent('li').addClass('active');
 
         }
     }
+    $('.toggle-nav').click(function(){
+        alert('hallo');
+    });
     
     $('.wp-post-image, .attachment-acf-banner').each(function(){
         var altText = $(this).attr('alt');

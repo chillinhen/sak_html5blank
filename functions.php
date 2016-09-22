@@ -187,7 +187,7 @@ function html5blank_header_scripts() {
         wp_register_script('fonts',get_stylesheet_directory_uri() . '/library/js/fonts.js', array ('jquery'), false, false);
         wp_enqueue_script('fonts');
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/library/js/scripts.js', array('jquery','bootstrap'), '1.0.0',false, true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
 }

@@ -252,6 +252,7 @@ p {
 a{
     color:$text-color;
     .logo &{
+        display:block;
         body.home & {color:#fff;}
     }
     .footer &{
@@ -266,7 +267,7 @@ ol {
     li {
         line-height: $base-line-height;
     }
-
+    
     &.unstyled {
         padding: 0;
         list-style: none;
@@ -284,6 +285,13 @@ ol {
             margin-left: 1rem;
             list-style: none;
         }
+    }
+}
+ul {
+    .widget & li {
+        list-style-position: outside;
+        padding-left: 1em;
+        list-style-image: url(../img/bg-select.png);
     }
 }
 

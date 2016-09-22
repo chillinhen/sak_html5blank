@@ -75,11 +75,5 @@
             <nav id="mainNav" role="navigation">
                 <a class="affix-logo" ref="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name'); ?>"> </a>
                 <?php html5blank_nav(); ?>
-
-                <?php
-                if (is_active_sidebar('languages')) :
-                    dynamic_sidebar('languages');
-                endif;
-                ?>
             </nav>
             <!-- /nav -->

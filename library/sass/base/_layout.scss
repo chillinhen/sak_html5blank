@@ -5,23 +5,42 @@
             color: #fff;
         }
         .contact-data{
+            @include align-items(stretch);
+            @include display(flex);
+            @include justify-content(flex-end);
+            
+            @media screen and (max-width:$screen-smallPad){
+                @include flex-direction(column);
+            }
+            @media screen and (min-width:$screen-smallPad + 1){
+                @include flex-direction(row);
+            }
+            
+
             > a {
-                float:right;
-                 padding:0 .2em;
-                 border-right:1px solid currentColor;
+                 padding:0 .5em;
+                 border-left:1px solid currentColor;
         
-                .fa{float:left;}
+                .fa{
+                    float:left;
+                    margin:0 .5em 0 0;
+                }
                 .fa-external-link{display:none;}
                 &:hover{
                     color:inherit;
                     opacity: .5;
                 }
-                &:last-child{border:0;}
+                &:first-child{
+                    border:0;
+                    .fa{
+                        @media screen and (min-width:$screen-smallPad){
+                            margin: 0;}
+                    }
+                }
                 @media screen and (max-width:$screen-smallPad){
                     width: 100%;
                     display:block;
                     font-size: 5vW;
-                    float:none;
                     border:0;
                     
                     i {
@@ -29,8 +48,11 @@
                         width: 44px;
                     }
                 }
+                @media screen and (max-device-width:$screen-smallPad) and (orientation:landscape){
+                   font-size: 3vW; 
+                }
                 &.facebook span{
-                    @media screen and (min-width:$screen-sm){
+                    @media screen and (min-width:$screen-md){
                         display:none;
                     }
                 }

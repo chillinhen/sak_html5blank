@@ -3,8 +3,11 @@
 }
 img {
     max-width: 100%;
+    height:auto;
     .logo & {
-        max-width:none; 
+        max-width:none;
+        width: 100%;
+        height:auto;
     }
 }
 .btn{

@@ -14,6 +14,11 @@ fieldset {
     border: 0;
     margin: 0;
     padding: 0;
+    .row{
+        @media screen and (min-width:$screen-sm){
+            margin-bottom: $vertical-spacing;
+        }
+    }
 }
 input[type="text"],
 input[type="date"],
@@ -22,28 +27,31 @@ input[type="confirm_email"],
 input[type="number"],
 input[type="tel"],
 textarea,
-select {    
-    @media screen and (max-width:$screen-sm){
-        
+select { 
+    background-color: $white;
+    @include border-radius(0);
+    border:1px solid $border-color;
+    padding: 2% 5%; 
+    @media screen and (max-width:$screen-xs){
+        width:100%;
     }
     @media screen and (min-device-width:$screen-sm + 1) and (orientation:portrait){
         width: 90%;/*_NO__DOTCOMMA__AFTER__ */
-        padding: 2% 5%; 
+        
     }
 }
-@media screen and (min-width:$screen-md){
-    input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-        @include appearance(none);
-        margin: 0; 
-    }
-    input[type=number] {-moz-appearance: textfield;}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    @include appearance(none);
+    margin: 0; 
 }
+input[type=number] {@include appearance(textfield);}
 select {
-    -webkit-appearance: none;
-    /*          -moz-appearance:none;*/
-    appearance:none;
-    line-height:20px;   
+    @include appearance(none);
+    line-height:20px;
+    background-image:url('../img/bg-select.png');
+    background-position: 98% 50%;
+    background-repeat: no-repeat; 
 }
 textarea {
     max-height: 120px;
@@ -53,6 +61,12 @@ textarea {
 
 .wpcf7{
     margin-bottom: 2em;
+}
+.wpcf7-form-control-wrap{
+    display:block;
+    > * {
+        width:100%;
+    }
 }
 .wpcf7-not-valid,
 .wpcf7-validation-errors,
@@ -79,6 +93,9 @@ textarea {
     border: 0;
     background: transparent;
 }
+/*.row.submit{
+    margin-top: 2em;
+}*/
 .row.checkbox > [class*="-12"]{
     padding:0;
 }

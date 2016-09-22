@@ -35,7 +35,12 @@
 <!-- /copyright -->
 <div class="scroll-to-top"><i class="fa fa-angle-up fa-2x"></i></div>
 </div>
-<?php get_template_part('partials/nav','off-canvas');?>
+<?php get_template_part('partials/nav', 'off-canvas'); ?>
+<?php
+if (is_active_sidebar('languages')) :
+    dynamic_sidebar('languages');
+endif;
+?>
 
 <!-- /container -->
 

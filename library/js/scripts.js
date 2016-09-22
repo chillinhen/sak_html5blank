@@ -79,7 +79,7 @@
         }
 
         //EVENTS
-        $('.events table.tablepress').addClass('events-table collapse');
+        $('.events table.tablepress').addClass('events-table collapse table');
         $('h2.tablepress-table-name').wrapInner('<a data-toggle="collapse" class="showToggle"></a>');
         $.each($('.tablepress'), function () {
             $("#" + this.id).prev('h2').addClass('collapseHeadline').children('a').attr('href', '#' + this.id);
@@ -94,11 +94,9 @@
 
         $('.events table.tablepress').each(function () {
             if ($(this).children('tbody').children('tr').length < 5) {
-                //alert('treffer');
                 $(this).removeClass('collapse');
                 $(this).parent('div').siblings('h2').removeClass('collapseHeadline');
                 $(this).parent('div').siblings('h2').children('a').removeClass('collapse').addClass('no-icon');
-                $(this).css('margin-left', '-40px');
             }
         });
         $('.events-table td').each(function () {

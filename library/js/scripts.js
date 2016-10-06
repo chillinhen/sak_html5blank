@@ -70,9 +70,6 @@
             }
         })
 
-
-
-
         //related Articles
         if ($('.row.bottom').children('div').length) {
             $('.row.bottom').addClass('related');
@@ -149,11 +146,39 @@
         navButton.bind('touchstart hover', function () {
             $(this).siblings('ul').addClass('show');
         });
+        
+        //request Boxes
+    function requestVisa() {
+        //alert('hallo');
+        // Step 1
+        $('#abidance').change(function () {
+            var antwort = $(this).val();
+            if (antwort == 'ja' || antwort == 'yes') {
+                $('#abidance-title-cnt').removeClass('hide');
+                $('#visa-cnt').addClass('hide');
+                $('#visa-more').addClass('hide');
+            } else if (antwort == 'nein' || antwort == 'no') {
+                $('#visa-cnt').removeClass('hide');
+                $('#abidance-title-cnt').addClass('hide');
+
+                $('#visa').change(function () {
+                    var antwort = $(this).val();
+                    if (antwort == 'ja' || antwort == 'yes') {
+                        $('#visa-more').removeClass('hide');
+                    }
+                    if (antwort == 'nein' || antwort == 'no') {
+                        $('#visa-more').addClass('hide');
+                    }
+                });
+            }
+
+        });
+    }
+    requestVisa();
 
 
     });
 
 })(jQuery, this);
-//$(this).siblings('ul').toggleClass('show');
 
 

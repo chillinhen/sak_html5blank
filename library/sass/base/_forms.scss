@@ -15,8 +15,9 @@ fieldset {
     margin: 0;
     padding: 0;
     .row{
-        @media screen and (min-width:$screen-sm){
-            margin-bottom: $vertical-spacing;
+        margin-bottom: $vertical-spacing;
+        &.submit{
+            margin-bottom:0;
         }
     }
 }

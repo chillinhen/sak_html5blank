@@ -8,7 +8,7 @@ if ($specialInfo):
     $post = $specialInfo;
     setup_postdata($post);
     ?>
-    <div id="post-<?php the_ID(); ?>" <?php post_class('box'); ?>
+    <div id="post-<?php the_ID(); ?>" <?php post_class('box'); ?>>
          <h3><?php the_title(); ?></h3>
              <?php the_excerpt(); ?>
     <?php edit_post_link(); ?>

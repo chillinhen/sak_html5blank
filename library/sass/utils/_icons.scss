@@ -18,14 +18,16 @@
 .post-edit-link{
     font-size:small;
     text-transform:none;
-
+    background:darken($brand-primary,50%);
+    padding:.2em .5em;
+    @include border-radius (4px);
+    &, & * {color:white !important;}
+    a:hover, a:focus{text-decoration:none;}
     &:before{
         @include icon-style ("\f040", .5em, 1, .5em, .5em);
     }
     .box & > span{
-        @extend %text-indent;
-        dispplay:inline-block;
-        width: 0px;
-        height:0px;
+        display:inline-block;
+        font-size:smaller;
     }
 }

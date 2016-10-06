@@ -1,5 +1,5 @@
 #banner{
-	@include outer-container;
+	@include outer-container(1200px);
 	
 	html:not(.flexbox) & {		
 		> .banner-image, > .banner-half {

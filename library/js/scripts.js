@@ -137,7 +137,7 @@
         //external icons
         $('a').filter(function () {
             return this.hostname && this.hostname !== location.hostname;
-        }).append(' <i class="fa fa-external-link"></i>').attr('target', '_blank');
+        }).addClass('external').attr('target', '_blank');
 //PDFs LInks
         $("a[href$='pdf']")
                 .prepend('<i class="fa fa-file-pdf-o"></i> ')

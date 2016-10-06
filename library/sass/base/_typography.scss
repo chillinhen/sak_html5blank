@@ -1,17 +1,4 @@
 @import "reset.css";
-
-$base-font-size:            100% !default;
-$base-line-height:          150% !default;
-$rem-base:                  14px !default;
-
-$paragraph-margin:          1rem;
-
-$headings-font-family:    'Titillium Web', Arial,Helvetica, sans-serif !important;
-$body-font-family:        'Ubuntu', Arial,Helvetica, sans-serif; 
-
-$heading-text-color:        $brand-primary;
-$body-text-color:           $text-color;
-$text-muted-color:          lighten($text-color,25%);
  %bold{font-weight:600};/** depends on font-fammily**/
  /* =============================================================================
    Variables & Mixins
@@ -105,6 +92,9 @@ a {
         color:inherit;
         display: block;
         cursor: pointer;
+    }
+    &.external:after{
+        @include icon-style ("\f08e", 0, 1, 1em, .8em);
     }
 }
 h1,h2,h3,h4, legend, .number, .widgettitle{
@@ -288,10 +278,16 @@ ol {
     }
 }
 ul {
-    .widget & li {
-        list-style-position: outside;
-        padding-left: 1em;
-        list-style-image: url(../img/bg-select.png);
+    .sidebar & {
+        padding:0;
+        li {
+            list-style:none;
+            text-indent: -1.35em;
+            margin:0 0 1em 1.5em;
+            &:before{
+                @include icon-style ("\f0da", 1em, 1, 0, 1em);
+            }
+        }
     }
 }
 

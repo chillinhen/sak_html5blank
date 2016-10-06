@@ -47,6 +47,23 @@ $carouselHeight:398px;
 $containerWidth:1170px;
 $contactImgHeight:115px;
 
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+$base-font-size:            100% !default;
+$base-line-height:          150% !default;
+$rem-base:                  14px !default;
+
+$paragraph-margin:          1rem;
+
+$headings-font-family:    'Titillium Web', Arial,Helvetica, sans-serif !important;
+$body-font-family:        'Ubuntu', Arial,Helvetica, sans-serif; 
+
+$heading-text-color:        $brand-primary;
+$body-text-color:           $text-color;
+$text-muted-color:          lighten($text-color,25%);
+
 /* Margins & Paddings */
-$outer-grid:2em;
-$vertical-spacing:2em;
+$outer-grid:2 * $rem-base;
+$vertical-spacing:2*$rem-base;

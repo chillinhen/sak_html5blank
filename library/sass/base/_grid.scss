@@ -1,6 +1,9 @@
 .container{
-    @include outer-container;
+    @include outer-container(1200px);
     padding:0 $outer-grid;
+    > div, > footer{
+            margin:$vertical-spacing 0;   
+        }
     &#header{
         @media screen and (max-width:$screen-maxPhone){
             .logo{
@@ -25,7 +28,15 @@
         }
     }
     .site-content{
-        @include outer-container;
+        body[class*="page-main"] &{
+            @media screen and (min-device-width:$screen-md) and (orientation:landscape){
+            margin:0;
+            height:0;
+            overflow:hidden;
+            }
+        }
+        @include outer-container(1200px);
+
         @media screen and (min-device-width:$screen-md) and (orientation:landscape){
             .main-content{@include span-columns(8);}
             .sidebar{@include span-columns(4);}
@@ -33,6 +44,7 @@
     }
     .panels{
         clear:both;
+        @include collapse-vert-style;
         @include display(flex);
         @include justify-content(space-between);
         @include align-items(stretch);
@@ -80,14 +92,13 @@
 
     }
     .full-content{
-        @include outer-container;
+        @include outer-container(1200px);
         > .box, > .related {
             @media screen and (min-width:$screen-sm){
                 @include span-columns(4);
             }  
         }
     }
-
 }
 .footer-info{
     @include flexbox;
@@ -111,9 +122,9 @@
 .sidebar,
 #footer{
     > * {
-      margin:$vertical-spacing 0;
-      &:first-child{
-          margin-top: 0;
-      }
+        margin:$vertical-spacing 0 0 0;
+    }
+    .service-links, .main-content, .sidebar, .sidebar > *:first-child{
+        @include collapse-vert-style;
     }
 }

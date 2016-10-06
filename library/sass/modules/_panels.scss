@@ -3,10 +3,15 @@
 }
 
 .box[class*="post"]{
-	background:$bg-panel;
-	border: 1px solid $bd-panel;
-	padding: 1em;
-	position: relative;
+    background:$bg-panel;
+    border: 1px solid $bd-panel;
+    padding: 1em;
+    position: relative;
+
+    &[class*="category-sonderinfos"]{
+        background: $brand-primary;
+        &, & *{color:white !important;}
+    }
 	
 	.panels &:after{
 		content: '';

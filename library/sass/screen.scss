@@ -1,10 +1,9 @@
-@import "/Users/chilliscope/Documents/Webseiten/toolbox/bower_components/bourbon/bourbon";
-@import "/Users/chilliscope/Documents/Webseiten/toolbox/bower_components/neat/app/assets/stylesheets/_neat";
-//@import "base/_normalize";
-//@import "bower_components/bitters/core/_base";
-@import "/Users/chilliscope/Documents/Webseiten/toolbox/sass/myMixins/extends";
-@import "/Users/chilliscope/Documents/Webseiten/toolbox/sass/myMixins/mixins";
-@import "/Users/chilliscope/Documents/Webseiten/toolbox/sass/myMixins/breakpoints";
+@import "../../../../../../toolbox/bower_components/bourbon/_bourbon.scss";
+@import "../../../../../../toolbox/bower_components/neat/app/assets/stylesheets/_neat.scss";
+
+@import "../../../../../../toolbox/sass/myMixins/extends.scss";
+@import "../../../../../../toolbox/sass/myMixins/mixins.scss";
+@import "../../../../../../toolbox/sass/myMixins/breakpoints.scss";
 
 
 @import 'utils/_variables';
@@ -32,6 +31,7 @@
 @import 'modules/_panels';
 @import 'modules/_accordions';
 @import 'modules/_events';
+@import 'modules/_infographic';
 
 
 /*

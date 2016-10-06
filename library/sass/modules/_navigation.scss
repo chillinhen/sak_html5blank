@@ -41,6 +41,7 @@
     }
     .sub-menu{
         background: $brand-primary;
+        padding-bottom:1em;
         #sitemap & {background: transparent;}
         a {
             display: block;
@@ -87,8 +88,9 @@ ul[class*='menu']{
         > .menu-item{
             
             &:hover {
+                background:$brand-primary;
                 > a{
-                    color: inherit; 
+                    color: $white; 
                 }
                 > .sub-menu{
                     display:block;  

@@ -39,7 +39,7 @@
             height: inherit;
             width: 100%;
             overflow: hidden;
-            @include outer-container;
+            @include outer-container(1200px);
             > * {@include span-columns(6);}
         }
     }

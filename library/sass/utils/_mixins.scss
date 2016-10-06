@@ -1,3 +1,12 @@
+/*** Grid ***/
+/*@mixin outer-container($width){
+    max-width: $width;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+@mixin collapse-vert-style{
+        margin-top: 0;
+}
 @mixin active-style {
 	background:$brand-primary;
         background-image:none !important;
@@ -156,5 +165,20 @@
 
     &.open span:nth-child(3) {
         @include transform(rotate(-45deg));
+    }
+}
+
+
+/*** Infographic ***/
+@mixin level-style($bg-col){
+    .number,.right-col{
+        @include alpha-background-color(rgba($bg-col, 1), $bg-col);
+        *{
+            color:lighten($bg-col,100%);
+        }
+        &:hover{
+            @include transition (background,500ms, ease-in-out);
+            @include alpha-background-color(rgba($bg-col, 0.6), $bg-col);
+        }
     }
 }

@@ -28,6 +28,7 @@
                     e.preventDefault();
                     //insert things you want to do when single tapped
                 }, 300);   //wait 300ms then run single click code
+                $(this).addClass('dropdown');
                 $(this).siblings('ul').toggleClass('show');
             } else {    //tapped within 300ms of last tap. double tap
                 clearTimeout(tapped); //stop single tap callback
@@ -110,7 +111,7 @@
         $('.collapseHeadline').each(function () {
             $(this).addClass('clearfix');
         });
-        $('.collapseHeadline > a').each(function () {
+        $('.collapseHeadline > a:first-child').each(function () {
             $(this).wrapInner('<span></span>');
             $(this).children('span').before('<i class="fa fa-plus-circle"></i>');
             $(this).click(function () {

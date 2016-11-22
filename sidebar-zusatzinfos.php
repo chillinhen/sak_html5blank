@@ -1,12 +1,5 @@
 <aside class="sidebar">
     <?php
-    //Post Thumbnail
-    if (has_post_thumbnail()) :?>
-    <div class="widget">
-       <?php the_post_thumbnail('wpbs-article');?>
-        </div>
-    <?php endif;?>
-    <?php
     // Auf einen Blick?>
     
     <?php

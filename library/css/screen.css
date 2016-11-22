@@ -57,15 +57,12 @@ html {
   display: none; }
 
 .post-edit-link {
-  font-size: small;
+  font-size: 14px;
   text-transform: none;
-  background: black;
-  padding: .2em .5em;
+  color: #2466a8;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   overflow: hidden; }
-  .post-edit-link, .post-edit-link * {
-    color: white !important; }
   .post-edit-link a:hover, .post-edit-link a:focus {
     text-decoration: none; }
   .post-edit-link:before {
@@ -74,10 +71,9 @@ html {
     padding-right: 0.5em;
     opacity: 1;
     margin-left: 0.5em;
-    font-size: 0.5em; }
+    font-size: 1em; }
   .box .post-edit-link > span {
-    display: inline-block;
-    font-size: smaller; }
+    display: inline-block; }
 
 /*
 @import 'base/_ui';
@@ -269,14 +265,17 @@ textarea {
         flex-basis: 75%;
         -ms-flex-preferred-size: 75%; } }
   .container .site-content {
+    /** ToDo Proof **/
+    /*        body[class*="page-main"] &{
+                @media screen and (min-device-width:$screen-md) and (orientation:landscape){
+                margin:0;
+                height:0;
+                overflow:hidden;
+                }
+            }*/
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto; }
-    @media screen and (min-device-width: 992px) and (orientation: landscape) {
-      body[class*="page-main"] .container .site-content {
-        margin: 0;
-        height: 0;
-        overflow: hidden; } }
     .container .site-content::after {
       clear: both;
       content: "";
@@ -490,7 +489,7 @@ textarea {
     flex: 2;
     text-align: center; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   [id*="banner"] {
     display: none; } }
 
@@ -670,9 +669,9 @@ h2, article h1 {
 h1 a:hover, h2 a:hover, article h1 a:hover, h3 a:hover {
   text-decoration: none;
   cursor: pointer; }
-h1.collapseHeadline > a:before, h2.collapseHeadline > a:before, article h1.collapseHeadline > a:before, h3.collapseHeadline > a:before {
+h1.collapseHeadline > a:first-child:before, h2.collapseHeadline > a:first-child:before, article h1.collapseHeadline > a:first-child:before, h3.collapseHeadline > a:first-child:before {
   padding-right: .5em; }
-h1.collapseHeadline > a:hover, h2.collapseHeadline > a:hover, article h1.collapseHeadline > a:hover, h3.collapseHeadline > a:hover {
+h1.collapseHeadline > a:first-child:hover, h2.collapseHeadline > a:first-child:hover, article h1.collapseHeadline > a:first-child:hover, h3.collapseHeadline > a:first-child:hover {
   cursor: default; }
 
 h4, .h4, h5, .h5, h6, .h6 {
@@ -838,21 +837,21 @@ table {
   @media screen and (max-width: 480px) {
     .collapseHeadline, h2.tablepress-table-name, article h1.tablepress-table-name, legend {
       font-size: 1.4em; } }
-  .collapseHeadline > a span, h2.tablepress-table-name > a span, article h1.tablepress-table-name > a span, legend > a span {
+  .collapseHeadline > a:first-child span, h2.tablepress-table-name > a:first-child span, article h1.tablepress-table-name > a:first-child span, legend > a:first-child span {
     display: inline-block;
     float: left; }
     @media screen and (max-width: 480px) {
-      .collapseHeadline > a span, h2.tablepress-table-name > a span, article h1.tablepress-table-name > a span, legend > a span {
+      .collapseHeadline > a:first-child span, h2.tablepress-table-name > a:first-child span, article h1.tablepress-table-name > a:first-child span, legend > a:first-child span {
         width: 80%; } }
     @media screen and (min-width: 481px) {
-      .collapseHeadline > a span, h2.tablepress-table-name > a span, article h1.tablepress-table-name > a span, legend > a span {
+      .collapseHeadline > a:first-child span, h2.tablepress-table-name > a:first-child span, article h1.tablepress-table-name > a:first-child span, legend > a:first-child span {
         width: 90%; } }
-  .collapseHeadline > a.no-icon ~ i, h2.tablepress-table-name > a.no-icon ~ i, article h1.tablepress-table-name > a.no-icon ~ i, legend > a.no-icon ~ i {
+  .collapseHeadline > a:first-child.no-icon ~ i, h2.tablepress-table-name > a:first-child.no-icon ~ i, article h1.tablepress-table-name > a:first-child.no-icon ~ i, legend > a:first-child.no-icon ~ i {
     display: none; }
-  .collapseHeadline > a i.fa, h2.tablepress-table-name > a i.fa, article h1.tablepress-table-name > a i.fa, legend > a i.fa {
+  .collapseHeadline > a:first-child i.fa, h2.tablepress-table-name > a:first-child i.fa, article h1.tablepress-table-name > a:first-child i.fa, legend > a:first-child i.fa {
     float: left;
     margin-right: 16px; }
-  .collapseHeadline > a:hover, .collapseHeadline > a:active, h2.tablepress-table-name > a:hover, article h1.tablepress-table-name > a:hover, h2.tablepress-table-name > a:active, article h1.tablepress-table-name > a:active, legend > a:hover, legend > a:active {
+  .collapseHeadline > a:first-child:hover, .collapseHeadline > a:first-child:active, h2.tablepress-table-name > a:first-child:hover, article h1.tablepress-table-name > a:first-child:hover, h2.tablepress-table-name > a:first-child:active, article h1.tablepress-table-name > a:first-child:active, legend > a:first-child:hover, legend > a:first-child:active {
     text-decoration: none;
     outline: none; }
   @media screen and (max-width: 768px) {
@@ -1219,7 +1218,9 @@ textarea {
     margin-left: 0.5em;
     font-size: 1.1em;
     color: currentColor; }
-  #mainNav .menu-item.menu-item-has-children.menu-item-has-children:hover > a:after, #offMenu .menu-item.menu-item-has-children.menu-item-has-children:hover > a:after {
+  #mainNav .menu-item.menu-item-has-children > a.dropdown:after, #offMenu .menu-item.menu-item-has-children > a.dropdown:after {
+    content: "\f0d7"; }
+  #mainNav .menu-item.menu-item-has-children.current_page_item > a:after, #offMenu .menu-item.menu-item-has-children.current_page_item > a:after {
     content: "\f0d7"; }
   .menu-item a, .menu-item a:hover {
     text-decoration: none; }
@@ -1862,6 +1863,8 @@ ul[class*='menu'] {
     width: 31.76157%; }
     .accordion > section .side:last-child {
       margin-right: 0; }
+.accordion .accordion-item {
+  margin-bottom: 28px; }
 
 .events {
   margin-top: 2em; }

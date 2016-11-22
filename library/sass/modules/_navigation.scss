@@ -9,20 +9,24 @@
     /* icons */
     &.menu-item-has-children {
         #mainNav &, #offMenu & {
-            > a:after{
-                @include icon-style ("\f0da", 0, 1, .5em, 1.1em);
-                color: currentColor;
-            }
-        }
-
-        &.menu-item-has-children:hover{
-            #mainNav &, #offMenu & {
-                > a:after{
+            > a{
+                &:after{
+                    @include icon-style ("\f0da", 0, 1, .5em, 1.1em);
+                    color: currentColor;
+                }
+                &.dropdown:after{
                     content: "\f0d7";
                 }
             }
+        }
+    }
+    &.menu-item-has-children.current_page_item{
+        #mainNav &, #offMenu & {
+                    > a:after{
+            content: "\f0d7";
+        }
+        }
 
-        } 
     }
     /* ende icons */
     a{

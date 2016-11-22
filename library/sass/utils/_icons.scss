@@ -16,18 +16,15 @@
 }
 
 .post-edit-link{
-    font-size:small;
+    font-size:$rem-base;
     text-transform:none;
-    background:darken($brand-primary,50%);
-    padding:.2em .5em;
+    color:$brand-primary;
     @include border-radius (4px);
-    &, & * {color:white !important;}
     a:hover, a:focus{text-decoration:none;}
     &:before{
-        @include icon-style ("\f040", .5em, 1, .5em, .5em);
+        @include icon-style ("\f040", .5em, 1, .5em, 1em);
     }
     .box & > span{
         display:inline-block;
-        font-size:smaller;
     }
 }

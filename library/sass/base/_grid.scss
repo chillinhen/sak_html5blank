@@ -28,13 +28,14 @@
         }
     }
     .site-content{
-        body[class*="page-main"] &{
+        /** ToDo Proof **/
+/*        body[class*="page-main"] &{
             @media screen and (min-device-width:$screen-md) and (orientation:landscape){
             margin:0;
             height:0;
             overflow:hidden;
             }
-        }
+        }*/
         @include outer-container(1200px);
 
         @media screen and (min-device-width:$screen-md) and (orientation:landscape){
@@ -109,7 +110,7 @@
 }
 
 [id*="banner"]{
-    @media screen and (max-width:$screen-smallPad){
+    @media screen and (max-width:$screen-sm - 1){
         display:none;
     }
 }

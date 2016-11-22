@@ -194,7 +194,7 @@ h1, h2, h3 {
             cursor:pointer;
         }
     }
-         &.collapseHeadline > a{
+         &.collapseHeadline > a:first-child{
 
             &:before{
                 padding-right: .5em;
@@ -397,7 +397,7 @@ table {
     @media screen and (max-width:$screen-xs){
         font-size:1.4em;
     }
-    > a {
+    > a:first-child {
         span{
             display: inline-block;
             float:left;

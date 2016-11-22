@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('accordion'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('accordion-item'); ?>>
     <header>
         <h2 class="collapseHeadline" itemprop="headline">
             <a role="button" data-toggle="collapse" data-parent="#post-<?php the_ID(); ?>" href="#collapse_<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapse_<?php the_ID(); ?>">

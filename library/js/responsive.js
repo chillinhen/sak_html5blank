@@ -1,14 +1,9 @@
 jQuery(document).ready(function ($) {
-
+//alert('hallo');
     
-    //set languages menu
-//    var positionTop = $('#header').height();
-//    alert(positionTop);
-//    $('.languages-menu-affix-top').css('top',positionTop);
-
     //declare var
     //var navButton = $('.navbar-responsive-collapse >ul >li >a');
-    var navButton = $('.navbar-nav a');   
+    var navButton = $('#offMenu .menu-item a');   
     var tapped=false;
     navButton.on("touchstart", function (e) {
         if (!tapped) { //if tap is not set, set up single tap

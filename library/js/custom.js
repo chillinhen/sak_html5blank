@@ -148,7 +148,7 @@ jQuery(document).ready(function ($) {
     //enable pointer events by clicking on parent
     $('.iframe-elastic').click(function () {
        // $('#map,.gm-style').css('pointer-events', 'all');
-       alert('hallo');
+       //alert('hallo');
     });
     // you want to disable pointer events when the mouse leave the canvas area;
     $("#map").mouseleave(function () {
@@ -169,22 +169,6 @@ jQuery(document).ready(function ($) {
                 .css('display', 'block');
 
     }
-
-//    //request Boxes
-//    function requestBoxes(requestSelect, hiddenSelect) {
-//        var hiddenContainer = $(hiddenSelect).parent().parent().parent();
-//        $(hiddenContainer).addClass('hide');
-//        var requestContainer = $(requestSelect);
-//
-//        $(requestContainer).change(function () {
-//            var antwort = $(this).val();
-//            if (antwort == 'nein' || antwort == 'no') {
-//                $(hiddenContainer).removeClass('hide');
-//            }
-//        });
-//    }
-//// request Visa
-//    requestBoxes('#abidance', '#visa');
 
     //Referenzrahmen
     $('#infographic .right-col').each(function () {

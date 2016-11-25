@@ -245,15 +245,15 @@ textarea {
       -moz-flex-direction: row;
       flex-direction: row;
       -ms-flex-direction: row;
-      -webkit-box-align: end;
-      -moz-box-align: end;
-      box-align: end;
-      -webkit-align-items: flex-end;
-      -moz-align-items: flex-end;
-      -ms-align-items: flex-end;
-      -o-align-items: flex-end;
-      align-items: flex-end;
-      -ms-flex-align: end; }
+      -webkit-box-align: start;
+      -moz-box-align: start;
+      box-align: start;
+      -webkit-align-items: flex-start;
+      -moz-align-items: flex-start;
+      -ms-align-items: flex-start;
+      -o-align-items: flex-start;
+      align-items: flex-start;
+      -ms-flex-align: start; }
       .container#header > .logo {
         -webkit-flex-basis: 25%;
         -moz-flex-basis: 25%;
@@ -264,6 +264,17 @@ textarea {
         -moz-flex-basis: 75%;
         flex-basis: 75%;
         -ms-flex-preferred-size: 75%; } }
+  @media screen and (min-width: 992px) {
+    .container#header {
+      -webkit-box-align: end;
+      -moz-box-align: end;
+      box-align: end;
+      -webkit-align-items: flex-end;
+      -moz-align-items: flex-end;
+      -ms-align-items: flex-end;
+      -o-align-items: flex-end;
+      align-items: flex-end;
+      -ms-flex-align: end; } }
   .container .site-content {
     /** ToDo Proof **/
     /*        body[class*="page-main"] &{
@@ -297,6 +308,7 @@ textarea {
           margin-right: 0; } }
   .container .panels {
     clear: both;
+    margin: 0 -1em;
     margin-top: 0;
     display: -webkit-box;
     display: -moz-box;
@@ -305,15 +317,7 @@ textarea {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -moz-box-pack: justify;
-    box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-justify-content: space-between;
-    -ms-justify-content: space-between;
-    -o-justify-content: space-between;
-    justify-content: space-between;
-    -ms-flex-pack: justify;
+    /*        @include justify-content(space-between);*/
     -webkit-box-align: stretch;
     -moz-box-align: stretch;
     box-align: stretch;
@@ -415,7 +419,12 @@ textarea {
   .container .full-content {
     max-width: 1200px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    /*        @include display(flex);
+            @include justify-content(space-between);
+               @media screen and (min-width:$screen-sm){
+                @include flex-direction(row);             
+                } */ }
     .container .full-content::after {
       clear: both;
       content: "";
@@ -425,7 +434,9 @@ textarea {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 31.76157%; }
+        width: 31.76157%;
+        /*            @include flex-basis(calc(100%/3 - 2em)); 
+                    border:1px solid red !important;            */ }
         .container .full-content > .box:last-child, .container .full-content > .related:last-child {
           margin-right: 0; } }
 
@@ -604,6 +615,13 @@ a.external:after {
   opacity: 1;
   margin-left: 1em;
   font-size: 0.8em; }
+.contact-data a.external:after {
+  font-family: 'FontAwesome';
+  content: " ";
+  padding-right: 0;
+  opacity: 0;
+  margin-left: 0;
+  font-size: 0; }
 
 h1, h2, article h1, h3, h4, legend, .number, .widgettitle {
   font-family: "Titillium Web", Arial, Helvetica, sans-serif !important;
@@ -629,6 +647,8 @@ body.search .page-title {
 body[class*="-standorte"] .page-title,
 .page-title body[class*="-main"] {
   display: none; }
+.related .page-title {
+  min-height: 2.4em; }
 
 h1 {
   font-size: 21px;
@@ -880,9 +900,6 @@ legend, h2.category-link, article h1.category-link, h2.category-link a .panel h3
   .breadcrumbs {
     text-align: right; } }
 
-*:hover {
-  cursor: pointer; }
-
 img {
   max-width: 100%;
   height: auto; }
@@ -939,7 +956,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%; }
-    .page-template-page-standorte-php .iframe-elastic iframe {
+    .iframe-elastic iframe .page-template-page-standorte-php, .page-template-page-standorte-php .iframe-elastic iframe {
       pointer-events: none; }
   @media screen and (max-width: 480px) {
     .page-template-page-standorte-php .iframe-elastic {
@@ -1170,6 +1187,10 @@ textarea {
   #wrapper > header .contact-data > a {
     padding: 0 .5em;
     border-left: 1px solid currentColor; }
+    @media screen and (max-width: 600px) {
+      #wrapper > header .contact-data > a {
+        padding-top: .15em;
+        padding-bottom: .15em; } }
     #wrapper > header .contact-data > a .fa {
       float: left;
       margin: 0 .5em 0 0; }
@@ -1189,13 +1210,13 @@ textarea {
         #wrapper > header .contact-data > a i {
           display: inline-block;
           width: 44px; } }
-    @media screen and (max-device-width: 600px) and (orientation: landscape) {
-      #wrapper > header .contact-data > a {
+    @media screen and (max-device-width: 480px) and (orientation: landscape) {
+      #wrapper > header .contact-data > a span {
         font-size: 1.2rem; } }
-    @media screen and (min-width: 992px) {
-      #wrapper > header .contact-data > a.facebook span {
-        display: none; } }
-    @media screen and (min-device-width: 768px) and (orientation: landscape) {
+    @media screen and (max-width: 600px) {
+      #wrapper > header .contact-data > a span {
+        font-size: 1.6rem; } }
+    @media screen and (min-device-width: 768px) {
       #wrapper > header .contact-data > a.facebook span {
         display: none; } }
 #wrapper > main {

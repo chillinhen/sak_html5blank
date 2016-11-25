@@ -136,6 +136,7 @@
         $('a').filter(function () {
             return this.hostname && this.hostname !== location.hostname;
         }).addClass('external').attr('target', '_blank');
+        $('.contact-data > a').removeClass('external');
 //PDFs LInks
         $("a[href$='pdf']")
                 .prepend('<i class="fa fa-file-pdf-o"></i> ')

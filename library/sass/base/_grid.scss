@@ -2,8 +2,8 @@
     @include outer-container(1200px);
     padding:0 $outer-grid;
     > div, > footer{
-            margin:$vertical-spacing 0;   
-        }
+        margin:$vertical-spacing 0;   
+    }
     &#header{
         @media screen and (max-width:$screen-maxPhone){
             .logo{
@@ -18,7 +18,7 @@
         @media screen and (min-width:$screen-sm){
             @include display(flex);
             @include flex-direction(row);
-            @include align-items(flex-end);
+            @include align-items(flex-start);
             > .logo{
                 @include flex-basis(25%);
             }
@@ -26,16 +26,19 @@
                 @include flex-basis(75%);
             }
         }
+        @media screen and (min-width:$screen-md){
+            @include align-items(flex-end); 
+        }
     }
     .site-content{
         /** ToDo Proof **/
-/*        body[class*="page-main"] &{
-            @media screen and (min-device-width:$screen-md) and (orientation:landscape){
-            margin:0;
-            height:0;
-            overflow:hidden;
-            }
-        }*/
+        /*        body[class*="page-main"] &{
+                    @media screen and (min-device-width:$screen-md) and (orientation:landscape){
+                    margin:0;
+                    height:0;
+                    overflow:hidden;
+                    }
+                }*/
         @include outer-container(1200px);
 
         @media screen and (min-device-width:$screen-md) and (orientation:landscape){
@@ -45,9 +48,10 @@
     }
     .panels{
         clear:both;
+        margin:0 -1em;
         @include collapse-vert-style;
         @include display(flex);
-        @include justify-content(space-between);
+        /*        @include justify-content(space-between);*/
         @include align-items(stretch);
         > * {
             margin: 1em;
@@ -94,9 +98,16 @@
     }
     .full-content{
         @include outer-container(1200px);
+        /*        @include display(flex);
+                @include justify-content(space-between);
+                   @media screen and (min-width:$screen-sm){
+                    @include flex-direction(row);             
+                    } */
         > .box, > .related {
             @media screen and (min-width:$screen-sm){
                 @include span-columns(4);
+                /*            @include flex-basis(calc(100%/3 - 2em)); 
+                            border:1px solid red !important;            */
             }  
         }
     }

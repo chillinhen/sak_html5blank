@@ -19,6 +19,10 @@
 
             > a {
                  padding:0 .5em;
+                 @media screen and (max-width:$screen-smallPad){
+                     padding-top:.15em;
+                     padding-bottom:.15em;
+                 }
                  border-left:1px solid currentColor;
         
                 .fa{
@@ -44,17 +48,18 @@
                         width: 44px;
                     }
                 }
-                @media screen and (max-device-width:$screen-smallPad) and (orientation:landscape){
-                   font-size: 1.2rem; 
-                }
-                &.facebook span{
-                    @media screen and (min-width:$screen-md){
-                        display:none;
+
+                & span{
+                    @media screen and (max-device-width:$screen-xs) and (orientation:landscape){
+                        font-size: 1.2rem; 
+                    }
+                    @media screen and (max-width:$screen-smallPad){
+                     font-size:1.6rem;   
                     }
                 }
-                &.facebook {
-                    @media screen and (min-device-width:$screen-sm) and (orientation:landscape){
-                        span {display:none;}
+                &.facebook span {
+                    @media screen and (min-device-width:$screen-sm){
+                       display:none;
                     }  
                 }
             }

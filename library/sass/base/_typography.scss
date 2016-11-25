@@ -96,6 +96,9 @@ a {
     &.external:after{
         @include icon-style ("\f08e", 0, 1, 1em, .8em);
     }
+    .contact-data &.external:after{
+        @include icon-style (" ", 0, 0, 0, 0);
+    }
 }
 h1,h2,h3,h4, legend, .number, .widgettitle{
     @include headline-style (400, 0, 1em);
@@ -120,6 +123,9 @@ h1,h2,h3,h4, legend, .number, .widgettitle{
     body[class*="-standorte"] &,
     body[class*="-main"]{
         display: none;
+    }
+    .related & {
+        min-height:2.4em;
     }
 }
 // different font-sizes

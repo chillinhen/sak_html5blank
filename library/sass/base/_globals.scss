@@ -1,6 +1,3 @@
-*{
-	&:hover{cursor: pointer;}
-}
 img {
     max-width: 100%;
     height:auto;
@@ -58,7 +55,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
-        .page-template-page-standorte-php & {pointer-events: none;}
+        .page-template-page-standorte-php, .page-template-page-standorte-php & {pointer-events: none;}
     }
 
     .page-template-page-standorte-php &{

@@ -37,9 +37,7 @@
 </div>
 <?php get_template_part('partials/nav', 'off-canvas'); ?>
 <?php
-if (is_active_sidebar('languages')) :
-    dynamic_sidebar('languages');
-endif;
+dynamic_sidebar('languages');
 ?>
 
 <!-- /container -->
